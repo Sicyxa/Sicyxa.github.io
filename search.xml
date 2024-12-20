@@ -1,86 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ES6常用语法</title>
-    <url>/2024/11/23/ES6%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h3><p>ECMAScript 6.0（也可以称为ECMAScript2015），ECMAScript 6.0简称 ES6，是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
-<h3 id="1、块级作用域（let、const）"><a href="#1、块级作用域（let、const）" class="headerlink" title="1、块级作用域（let、const）"></a>1、块级作用域（let、const）</h3><ul>
-<li>块级作用域，就是其使用范围只有在{}中起作用，不像之前var定义的变量都是函数级作用域。</li>
-<li><font color="red">let</font> 和 <font color="red">const</font>不允许重复声明变量</li>
-<li><font color="red">let</font> 和 <font color="red">const</font> 声明的变量不会在预解析的时候解析（没有变量提升，需要先声明再使用）</li>
-<li><font color="red">let</font> 声明的变量的值可以改变，<font color="red">const</font>声明的变量值不可以改变，且声明的时候必须赋值。</li>
-</ul>
-<h3 id="2、解构赋值"><a href="#2、解构赋值" class="headerlink" title="2、解构赋值"></a>2、解构赋值</h3><p>从数组和对象中提取值，对变量进行赋值</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//1,2,3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象解构</span></span><br><span class="line"><span class="comment">//对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</span></span><br><span class="line"><span class="keyword">let</span> &#123;age,name&#125; = &#123;<span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,<span class="attr">age</span>:<span class="number">24</span>&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(age,name)   <span class="comment">//chenyuxiang,24</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c,d] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//h,e,l</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="3、模板字符串"><a href="#3、模板字符串" class="headerlink" title="3、模板字符串"></a>3、模板字符串</h3><p>反引号(&#96;&#96;)，变量(${})</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">`你好，<span class="subst">$&#123;msg&#125;</span>`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)   <span class="comment">//输出结果为：你好，hello world</span></span><br></pre></td></tr></table></figure></div>
-<h4 id="3-1、-字符串扩展-includes函数"><a href="#3-1、-字符串扩展-includes函数" class="headerlink" title="3.1、 字符串扩展- includes函数"></a>3.1、 字符串扩展- includes函数</h4><p>判断字符串中是否存在指定字符,返回布尔值，存在则为true，不存在则为false</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;chenyuxiang&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;c&quot;</span>))  <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;d&quot;</span>))  <span class="comment">//false</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="3-2-、字符串扩展-repeat函数"><a href="#3-2-、字符串扩展-repeat函数" class="headerlink" title="3.2 、字符串扩展- repeat函数"></a>3.2 、字符串扩展- repeat函数</h4><p>repeat()函数返回一个新的字符串，表示将原字符串重复n次</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;x&#x27;</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">3</span>)   <span class="comment">// &#x27;xxx&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">0</span>)  <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="4、数组扩展"><a href="#4、数组扩展" class="headerlink" title="4、数组扩展"></a>4、数组扩展</h3><h4 id="4-1、扩展运算符，数组合并"><a href="#4-1、扩展运算符，数组合并" class="headerlink" title="4.1、扩展运算符，数组合并"></a>4.1、扩展运算符，数组合并</h4><p>扩展运算符（spread）是三个点（<code>...</code>）。将一个数组转为用都好分隔的参数序列</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])   <span class="comment">//1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>,...[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">5</span>)  <span class="comment">//1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(...[<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>])</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr1 =[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> arr2 =[<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="comment">//合并数组</span></span><br><span class="line">[...arr1,...arr2]  <span class="comment">//[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="4-2-、Array-of"><a href="#4-2-、Array-of" class="headerlink" title="4.2 、Array.of"></a>4.2 、Array.of</h4><p>将一组值转化为数组，即新建数组</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr =<span class="title class_">Array</span>.<span class="title function_">of</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)  <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="4-3、-find方法"><a href="#4-3、-find方法" class="headerlink" title="4.3、 find方法"></a>4.3、 find方法</h4><p>（1）该方法主要应用于查找<font color="red">第一个</font>符合条件的数组元素<br>（2）它的参数是一个回调函数。在回调函数中可以写你要查找元素的条件,当条件成立为true时,返回该元素。如果没有符合条件的元素,返回值为undefined</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;<span class="keyword">return</span> item&gt;<span class="number">13</span>&#125;)               <span class="comment">//值  输出14</span></span><br><span class="line"><span class="keyword">let</span> res1 = arr.<span class="title function_">findIndex</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;retuen item&gt;<span class="number">13</span>&#125;)         <span class="comment">//索引 输出3</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="5、对象扩展-Object-assign"><a href="#5、对象扩展-Object-assign" class="headerlink" title="5、对象扩展 Object.assign"></a>5、对象扩展 Object.assign</h3><p><code>Object.assign()</code>方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> target =  &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source1 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source2 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.assign()方法的第一个参数是目标对象，后面的参数都是源对象。</span></span><br><span class="line"><span class="comment">//注意，如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Object</span>.<span class="title function_">assign</span>(target, source);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target); <span class="comment">//  &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">//&#123; a: 1, b: 4, c: 5 &#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="6、Set"><a href="#6、Set" class="headerlink" title="6、Set"></a>6、Set</h3><p>ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>].<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> s.<span class="title function_">add</span>(item))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> s)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)        <span class="comment">//2 3 5 4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>通过 add() 方法向 Set 结构加入成员，结果表明 Set 结构不会添加重复的,Set 函数可以接受一个数组作为参数</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])  </span><br><span class="line">..<span class="property">set</span>      <span class="comment">//1 2 3 4</span></span><br><span class="line">[...set]   <span class="comment">//[1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组去重的方法</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])]     <span class="comment">// [1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串去重</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(<span class="string">&#x27;ababbc&#x27;</span>)].<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)   <span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>向Set加入值的时候，不会发生类型转换，<font color=red>5</font>&gt;和<font color=red>“5”</font>是两个不同的值</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="number">5</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet) <span class="comment">//Set(2)&#123;&#x27;5&#x27;,5&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-1、-size属性"><a href="#6-1、-size属性" class="headerlink" title="6.1、 size属性"></a>6.1、 size属性</h4><p>返回 Set 实例的成员总数</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">const item = new Set ([1,2,3,4,5,5,5,5])</span><br><span class="line">item.size    //5</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-2、-delete"><a href="#6-2、-delete" class="headerlink" title="6.2、 delete()"></a>6.2、 delete()</h4><p>删除某个值，返回一个布尔值，表示删除是否</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">delete</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-3-、has"><a href="#6-3-、has" class="headerlink" title="6.3 、has()"></a>6.3 、has()</h4><p>返回一个布尔值，表示该值是否为Set的成员</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">has</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-4、-clear"><a href="#6-4、-clear" class="headerlink" title="6.4、 clear()"></a>6.4、 clear()</h4><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">clear</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet);  <span class="comment">// Set(0) &#123;size: 0&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="7、箭头函数"><a href="#7、箭头函数" class="headerlink" title="7、箭头函数"></a>7、箭头函数</h3><p>箭头函数作为普通函数的一个补充，将this指向了函数体之外最近一层的this，而不是向普通JS一样将this指向window变量。</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;cyx&quot;</span></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// chenyuxiang</span></span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">user.<span class="title function_">getName</span>()</span><br></pre></td></tr></table></figure></div>
-
-
-  <div class="note-large blue">
-    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
-      <p>提示</p>
-
-    </div>
-    <div class="notel-content">
-      <p>箭头函数里面根本没有自己的 this ，而是引用外层的 this。对于普通函数来说，内部的 this 指向函数运行时所在的对象，但是这 一点对箭头函数不成立。它没有自己的 this 对象，内部的 this 就是定 义时上层作用域中的 this</p>
-
-    </div>
-  </div>
-
-<h3 id="8、最后其他es6常用的语法"><a href="#8、最后其他es6常用的语法" class="headerlink" title="8、最后其他es6常用的语法"></a>8、最后其他es6常用的语法</h3><p><a class="link"   href="https://es6.ruanyifeng.com/#docs/promise" >promise对象 (JavaScript进阶之Ajax的问题和什么是promise)</a>)</p>
-<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/async" >asyn 和 await 函数 (fetch和axios接口调用方式的用法)</a>)</p>
-<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/array" >Es6简化操作的一些数组方法使用及原理</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>前端应用</category>
-      </categories>
-      <tags>
-        <tag>ES6</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用Hexo快速搭建自己的博客系统</title>
     <url>/2024/11/18/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h3 id="一、Git工具和Node-js的安装"><a href="#一、Git工具和Node-js的安装" class="headerlink" title="一、Git工具和Node.js的安装"></a>一、Git工具和Node.js的安装</h3><h4 id="1-Git工具的安装"><a href="#1-Git工具的安装" class="headerlink" title="1.Git工具的安装"></a>1.Git工具的安装</h4><p>打开<a class="link"   href="https://git-scm.com/" >Git</a>官网，无脑安装下一步即可。</p>
@@ -162,6 +82,86 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6常用语法</title>
+    <url>/2024/11/23/ES6%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h3><p>ECMAScript 6.0（也可以称为ECMAScript2015），ECMAScript 6.0简称 ES6，是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
+<h3 id="1、块级作用域（let、const）"><a href="#1、块级作用域（let、const）" class="headerlink" title="1、块级作用域（let、const）"></a>1、块级作用域（let、const）</h3><ul>
+<li>块级作用域，就是其使用范围只有在{}中起作用，不像之前var定义的变量都是函数级作用域。</li>
+<li><font color="red">let</font> 和 <font color="red">const</font>不允许重复声明变量</li>
+<li><font color="red">let</font> 和 <font color="red">const</font> 声明的变量不会在预解析的时候解析（没有变量提升，需要先声明再使用）</li>
+<li><font color="red">let</font> 声明的变量的值可以改变，<font color="red">const</font>声明的变量值不可以改变，且声明的时候必须赋值。</li>
+</ul>
+<h3 id="2、解构赋值"><a href="#2、解构赋值" class="headerlink" title="2、解构赋值"></a>2、解构赋值</h3><p>从数组和对象中提取值，对变量进行赋值</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//1,2,3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象解构</span></span><br><span class="line"><span class="comment">//对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</span></span><br><span class="line"><span class="keyword">let</span> &#123;age,name&#125; = &#123;<span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,<span class="attr">age</span>:<span class="number">24</span>&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(age,name)   <span class="comment">//chenyuxiang,24</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c,d] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//h,e,l</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="3、模板字符串"><a href="#3、模板字符串" class="headerlink" title="3、模板字符串"></a>3、模板字符串</h3><p>反引号(&#96;&#96;)，变量(${})</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">`你好，<span class="subst">$&#123;msg&#125;</span>`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)   <span class="comment">//输出结果为：你好，hello world</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="3-1、-字符串扩展-includes函数"><a href="#3-1、-字符串扩展-includes函数" class="headerlink" title="3.1、 字符串扩展- includes函数"></a>3.1、 字符串扩展- includes函数</h4><p>判断字符串中是否存在指定字符,返回布尔值，存在则为true，不存在则为false</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;chenyuxiang&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;c&quot;</span>))  <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;d&quot;</span>))  <span class="comment">//false</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="3-2-、字符串扩展-repeat函数"><a href="#3-2-、字符串扩展-repeat函数" class="headerlink" title="3.2 、字符串扩展- repeat函数"></a>3.2 、字符串扩展- repeat函数</h4><p>repeat()函数返回一个新的字符串，表示将原字符串重复n次</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;x&#x27;</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">3</span>)   <span class="comment">// &#x27;xxx&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">0</span>)  <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="4、数组扩展"><a href="#4、数组扩展" class="headerlink" title="4、数组扩展"></a>4、数组扩展</h3><h4 id="4-1、扩展运算符，数组合并"><a href="#4-1、扩展运算符，数组合并" class="headerlink" title="4.1、扩展运算符，数组合并"></a>4.1、扩展运算符，数组合并</h4><p>扩展运算符（spread）是三个点（<code>...</code>）。将一个数组转为用都好分隔的参数序列</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])   <span class="comment">//1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>,...[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">5</span>)  <span class="comment">//1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(...[<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>])</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr1 =[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> arr2 =[<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="comment">//合并数组</span></span><br><span class="line">[...arr1,...arr2]  <span class="comment">//[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4-2-、Array-of"><a href="#4-2-、Array-of" class="headerlink" title="4.2 、Array.of"></a>4.2 、Array.of</h4><p>将一组值转化为数组，即新建数组</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr =<span class="title class_">Array</span>.<span class="title function_">of</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)  <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4-3、-find方法"><a href="#4-3、-find方法" class="headerlink" title="4.3、 find方法"></a>4.3、 find方法</h4><p>（1）该方法主要应用于查找<font color="red">第一个</font>符合条件的数组元素<br>（2）它的参数是一个回调函数。在回调函数中可以写你要查找元素的条件,当条件成立为true时,返回该元素。如果没有符合条件的元素,返回值为undefined</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;<span class="keyword">return</span> item&gt;<span class="number">13</span>&#125;)               <span class="comment">//值  输出14</span></span><br><span class="line"><span class="keyword">let</span> res1 = arr.<span class="title function_">findIndex</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;retuen item&gt;<span class="number">13</span>&#125;)         <span class="comment">//索引 输出3</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="5、对象扩展-Object-assign"><a href="#5、对象扩展-Object-assign" class="headerlink" title="5、对象扩展 Object.assign"></a>5、对象扩展 Object.assign</h3><p><code>Object.assign()</code>方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> target =  &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source1 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source2 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.assign()方法的第一个参数是目标对象，后面的参数都是源对象。</span></span><br><span class="line"><span class="comment">//注意，如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Object</span>.<span class="title function_">assign</span>(target, source);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target); <span class="comment">//  &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">//&#123; a: 1, b: 4, c: 5 &#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="6、Set"><a href="#6、Set" class="headerlink" title="6、Set"></a>6、Set</h3><p>ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>].<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> s.<span class="title function_">add</span>(item))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> s)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)        <span class="comment">//2 3 5 4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>通过 add() 方法向 Set 结构加入成员，结果表明 Set 结构不会添加重复的,Set 函数可以接受一个数组作为参数</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])  </span><br><span class="line">..<span class="property">set</span>      <span class="comment">//1 2 3 4</span></span><br><span class="line">[...set]   <span class="comment">//[1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组去重的方法</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])]     <span class="comment">// [1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串去重</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(<span class="string">&#x27;ababbc&#x27;</span>)].<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)   <span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>向Set加入值的时候，不会发生类型转换，<font color=red>5</font>&gt;和<font color=red>“5”</font>是两个不同的值</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="number">5</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet) <span class="comment">//Set(2)&#123;&#x27;5&#x27;,5&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-1、-size属性"><a href="#6-1、-size属性" class="headerlink" title="6.1、 size属性"></a>6.1、 size属性</h4><p>返回 Set 实例的成员总数</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">const item = new Set ([1,2,3,4,5,5,5,5])</span><br><span class="line">item.size    //5</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-2、-delete"><a href="#6-2、-delete" class="headerlink" title="6.2、 delete()"></a>6.2、 delete()</h4><p>删除某个值，返回一个布尔值，表示删除是否</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">delete</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-3-、has"><a href="#6-3-、has" class="headerlink" title="6.3 、has()"></a>6.3 、has()</h4><p>返回一个布尔值，表示该值是否为Set的成员</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">has</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-4、-clear"><a href="#6-4、-clear" class="headerlink" title="6.4、 clear()"></a>6.4、 clear()</h4><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">clear</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet);  <span class="comment">// Set(0) &#123;size: 0&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="7、箭头函数"><a href="#7、箭头函数" class="headerlink" title="7、箭头函数"></a>7、箭头函数</h3><p>箭头函数作为普通函数的一个补充，将this指向了函数体之外最近一层的this，而不是向普通JS一样将this指向window变量。</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;cyx&quot;</span></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// chenyuxiang</span></span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">user.<span class="title function_">getName</span>()</span><br></pre></td></tr></table></figure></div>
+
+
+  <div class="note-large blue">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>提示</p>
+
+    </div>
+    <div class="notel-content">
+      <p>箭头函数里面根本没有自己的 this ，而是引用外层的 this。对于普通函数来说，内部的 this 指向函数运行时所在的对象，但是这 一点对箭头函数不成立。它没有自己的 this 对象，内部的 this 就是定 义时上层作用域中的 this</p>
+
+    </div>
+  </div>
+
+<h3 id="8、最后其他es6常用的语法"><a href="#8、最后其他es6常用的语法" class="headerlink" title="8、最后其他es6常用的语法"></a>8、最后其他es6常用的语法</h3><p><a class="link"   href="https://es6.ruanyifeng.com/#docs/promise" >promise对象 (JavaScript进阶之Ajax的问题和什么是promise)</a>)</p>
+<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/async" >asyn 和 await 函数 (fetch和axios接口调用方式的用法)</a>)</p>
+<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/array" >Es6简化操作的一些数组方法使用及原理</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>前端应用</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue3中Pinia的基本使用</title>
     <url>/2024/11/19/Vue3%E4%B8%AD%E4%BD%BF%E7%94%A8Pinia%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h3 id="Pinia-介绍"><a href="#Pinia-介绍" class="headerlink" title="Pinia 介绍"></a><a class="link"   href="https://pinia.web3doc.top/" >Pinia</a> 介绍</h3><p>Pinia是一个专门为Vue.js设计的状态管理库，它提供了一种简单和直观的方式来管理应用程序的状态。在使用Pinia时，可以轻松地创建定义状态的存储，然后将其与Vue组件绑定，使它们能够使用该状态。和Vuex相比，Pinia 更加简单易用，体积更小，同时具有更好的 TypeScript 支持和插件系统。</p>
@@ -205,29 +205,6 @@
       <tags>
         <tag>Pinia</tag>
         <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>个人第一篇博客</title>
-    <url>/2024/11/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
-<li>这是我的第一篇个人博客，作为初学者，这算是一个新的开始，程序员总该要有一个属于自己的网站吧！</li>
-<li>搭建这个blog的目的是想记录一些东西，技术上的也好，日常生活也好，过程中也能学习到不少东西，说干就干！</li>
-</ul>
-<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>进入程序员这行已经有2年时间了，从技术小白一路走来，学过的知识和做过的项目都不曾好好地去总结，所以想找个地方好好记录下来。</p>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>大学四年时候给我的第一感受是，修完学校的课程后，发现出来工作用得上的少之又少，如今大环境经济形势 不好，跳槽也很难，要想找到满意的工作就不得不提高自己的技术和水平，所以要想深入了解开发技术必须要用业余时间来学习记录和总结。</p>
-<h3 id="入行"><a href="#入行" class="headerlink" title="入行"></a>入行</h3><p>毕业后第一件事当然是找工作啦，兜兜转转两个月，找到了一家做农业的物联网公司，正好缺一个应届毕业生做网页开发，于是就开启了搬砖生活。公司规模不大，平时的工作是写写web前端的页面，刚入职不久就去山西出差做项目了，老板可能看我表现还可以，完成了基本考核后正式转正成了一名前端开发。</p>
-<h3 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h3><p>大学期间主要学的java，js，html，css什么都学一点，所以技术上来说不是很深入，<a class="link"   href="https://cn.vuejs.org/guide/introduction.html" >Vue</a>是近几年比较火的前端框架，为了快点提高技术自己又花时间去网上看文档视频，js，css，html也是重新学习了一下，然后就直接开始实际做项目。刚开始使用技术不够熟练，踩了不少坑，一个自适应页面折腾了好几个月才勉强搞定，现在熟悉了以后看之前写的代码不禁感叹我以前这么菜的啊，哈哈。</p>
-<h3 id="业余生活"><a href="#业余生活" class="headerlink" title="业余生活"></a>业余生活</h3><p>工作是双休制不加班，所以平常有事没事就和同学朋友出去玩，爬爬山吃吃饭唱唱歌啥的，总之比较爱玩。可能是大学生活过的太爽了，现在已经成了一个小胖子了（大一那会还是挺瘦的），之前膝盖受过伤，爬山又开始有点膝盖疼了，腿脚也不利索了也就爬的少了。本来我也是个不追星的人，谁知道突然杀出来个赵雷，他的歌给人一种朴实且真诚的感觉，后面就越来越喜欢了，偶尔会去看看他音乐节。今年错过了“没有信号”巡演和阿那亚限时返场，真是遗憾。其他的话偶尔追追剧、看看电影、学学吉他。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>尽量每周写一篇记录一下生活、技术的博客，总结一下经验。明年想离开桂林去外边的世界看看，得多提升一下自己才行！</p>
-]]></content>
-      <categories>
-        <category>记录生活</category>
-        <category>第一篇博客</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>新的开始</tag>
       </tags>
   </entry>
   <entry>
@@ -279,6 +256,29 @@
       <tags>
         <tag>阿里云</tag>
         <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人第一篇博客</title>
+    <url>/2024/11/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>这是我的第一篇个人博客，作为初学者，这算是一个新的开始，程序员总该要有一个属于自己的网站吧！</li>
+<li>搭建这个blog的目的是想记录一些东西，技术上的也好，日常生活也好，过程中也能学习到不少东西，说干就干！</li>
+</ul>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>进入程序员这行已经有2年时间了，从技术小白一路走来，学过的知识和做过的项目都不曾好好地去总结，所以想找个地方好好记录下来。</p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>大学四年时候给我的第一感受是，修完学校的课程后，发现出来工作用得上的少之又少，如今大环境经济形势 不好，跳槽也很难，要想找到满意的工作就不得不提高自己的技术和水平，所以要想深入了解开发技术必须要用业余时间来学习记录和总结。</p>
+<h3 id="入行"><a href="#入行" class="headerlink" title="入行"></a>入行</h3><p>毕业后第一件事当然是找工作啦，兜兜转转两个月，找到了一家做农业的物联网公司，正好缺一个应届毕业生做网页开发，于是就开启了搬砖生活。公司规模不大，平时的工作是写写web前端的页面，刚入职不久就去山西出差做项目了，老板可能看我表现还可以，完成了基本考核后正式转正成了一名前端开发。</p>
+<h3 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h3><p>大学期间主要学的java，js，html，css什么都学一点，所以技术上来说不是很深入，<a class="link"   href="https://cn.vuejs.org/guide/introduction.html" >Vue</a>是近几年比较火的前端框架，为了快点提高技术自己又花时间去网上看文档视频，js，css，html也是重新学习了一下，然后就直接开始实际做项目。刚开始使用技术不够熟练，踩了不少坑，一个自适应页面折腾了好几个月才勉强搞定，现在熟悉了以后看之前写的代码不禁感叹我以前这么菜的啊，哈哈。</p>
+<h3 id="业余生活"><a href="#业余生活" class="headerlink" title="业余生活"></a>业余生活</h3><p>工作是双休制不加班，所以平常有事没事就和同学朋友出去玩，爬爬山吃吃饭唱唱歌啥的，总之比较爱玩。可能是大学生活过的太爽了，现在已经成了一个小胖子了（大一那会还是挺瘦的），之前膝盖受过伤，爬山又开始有点膝盖疼了，腿脚也不利索了也就爬的少了。本来我也是个不追星的人，谁知道突然杀出来个赵雷，他的歌给人一种朴实且真诚的感觉，后面就越来越喜欢了，偶尔会去看看他音乐节。今年错过了“没有信号”巡演和阿那亚限时返场，真是遗憾。其他的话偶尔追追剧、看看电影、学学吉他。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>尽量每周写一篇记录一下生活、技术的博客，总结一下经验。明年想离开桂林去外边的世界看看，得多提升一下自己才行！</p>
+]]></content>
+      <categories>
+        <category>记录生活</category>
+        <category>第一篇博客</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>新的开始</tag>
       </tags>
   </entry>
 </search>
