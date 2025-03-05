@@ -81,6 +81,86 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue Router的基本用法</title>
+    <url>/2025/03/05/Router%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="Vue-Router的基本用法"><a href="#Vue-Router的基本用法" class="headerlink" title="Vue Router的基本用法"></a>Vue Router的基本用法</h3><h4 id="一、安装使用步骤"><a href="#一、安装使用步骤" class="headerlink" title="一、安装使用步骤"></a>一、安装使用步骤</h4><p>对于一个现有的使用 JavaScript 包管理器的项目，你可以从 npm registry 中安装 Vue Router：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install vue-router@4</span><br></pre></td></tr></table></figure></div>
+
+<p>新建文件src&#x2F;router&#x2F;index.js</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createWebHistory, createRouter &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//配置路由映射：组件和路径映射关系的routes数组</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; </span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;./HomeView.vue&#x27;</span>)</span><br><span class="line">  &#125;, </span><br><span class="line">  &#123; </span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;./AboutView.vue&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过createRouter创建路由对象，并且传入routes和history模式</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHistory</span>(),</span><br><span class="line">  routes,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//向外共享路由实例对象</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure></div>
+
+<p>在 src&#x2F;main.js 中导入注册 Vue Router</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> ‘./router’</span><br><span class="line">app.<span class="title function_">use</span>(router)</span><br></pre></td></tr></table></figure></div>
+
+<p>在App.vue中使用</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- App根组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;!-- 声明路由链接 --&gt;</span><br><span class="line">    &lt;router-link to=&quot;/home&quot;&gt;首页&lt;/router-link&gt;</span><br><span class="line">    &lt;router-link to=&quot;/about&quot;&gt;关于&lt;/router-link&gt;</span><br><span class="line">    &lt;!-- 声明路由占位符 --&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="二、动态路由匹配"><a href="#二、动态路由匹配" class="headerlink" title="二、动态路由匹配"></a>二、<a class="link"   href="https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html" >动态路由匹配</a></h4><p>很多时候，我们需要将给定匹配模式的路由映射到同一个组件。</p>
+<ul>
+<li><p>例如，我们可能有一个 <code>User</code> 组件，它应该对所有用户进行渲染，但用户 ID 不同。</p>
+</li>
+<li><p>在Vue Router中，我们可以在路径中使用一个动态字段来实现，我们称之为 路径参数；</p>
+</li>
+</ul>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; </span><br><span class="line">  	  <span class="comment">// 动态字段以冒号开始	</span></span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/users/:id&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;./User.vue&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>你可以在同一个路由中设置有多个 <em>路径参数</em>，它们会映射到 <code>$route.params</code> 上的相应字段。例如：</p>
+<table>
+<thead>
+<tr>
+<th align="left">匹配模式</th>
+<th align="left">匹配路径</th>
+<th align="left">route.params</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">&#x2F;users&#x2F;:username</td>
+<td align="left">&#x2F;users&#x2F;eduardo</td>
+<td align="left"><code>&#123; username: &#39;eduardo&#39; &#125;</code></td>
+</tr>
+<tr>
+<td align="left">&#x2F;users&#x2F;:username&#x2F;posts&#x2F;:postId</td>
+<td align="left">&#x2F;users&#x2F;eduardo&#x2F;posts&#x2F;123</td>
+<td align="left"><code>&#123; username: &#39;eduardo&#39;, postId: &#39;123&#39; &#125;</code></td>
+</tr>
+</tbody></table>
+<h6 id="获取动态路由的值："><a href="#获取动态路由的值：" class="headerlink" title="获取动态路由的值："></a>获取动态路由的值：</h6><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;User---&#123;&#123; $route.params.id &#125;&#125;&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    // setup中使用useRoute</span><br><span class="line">	import &#123;useRoute&#125; from &quot;vue-router&quot;</span><br><span class="line">    const router = useRoute()</span><br><span class="line">    console.log(route.params.id)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="三、路由命名"><a href="#三、路由命名" class="headerlink" title="三、路由命名"></a>三、路由命名</h4><p>当创建一个路由时，我们可以选择给路由一个 <code>name</code>：</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/user/:username&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;profile&#x27;</span>, </span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">User</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+<p>然后我们可以使用 <code>name</code> 而不是 <code>path</code> 来传递 <code>to</code> 属性给 <code>&lt;router-link&gt;</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;router-link :to=&quot;&#123; name: &#x27;profile&#x27;, params: &#123; username: &#x27;erina&#x27; &#125; &#125;&quot;&gt;</span><br><span class="line">  User profile</span><br><span class="line">&lt;/router-link&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>上述示例将创建一个指向 <code>/user/erina</code> 的链接。</p>
+<h4 id="四、编程式导航"><a href="#四、编程式导航" class="headerlink" title="四、编程式导航"></a>四、编程式导航</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">    // setup中使用useRoute</span><br><span class="line">	import &#123;useRoute&#125; from &quot;vue-router&quot;</span><br><span class="line">    const router = useRoute()</span><br><span class="line">   	</span><br><span class="line">    //字符串路径</span><br><span class="line">    router.push(&#x27;/user/eduardo&#x27;)</span><br><span class="line">    </span><br><span class="line">    //带路径的对象</span><br><span class="line">    router.push(&#123;path:&#x27;/users/eduardo&#x27;&#125;)</span><br><span class="line">    </span><br><span class="line">    //命名的路由，并加上参数，让路由建立url</span><br><span class="line">    router.push(&#123;name:&#x27;user&#x27;,params:&#123;username:&#x27;eduardo&#x27;&#125;&#125;)</span><br><span class="line">    </span><br><span class="line">    //带查询参数，结果是 /register?plan=private</span><br><span class="line">    router.push(&#123;path:&#x27;/register&#x27;,query:&#123;plan:&#x27;private&#x27;&#125;&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>注意</strong>：如果提供了 <code>path</code>，<code>params</code> 会被忽略</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> username = <span class="string">&#x27;eduardo&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们可以手动建立 url，但我们必须自己处理编码</span></span><br><span class="line">router.<span class="title function_">push</span>(<span class="string">`/user/<span class="subst">$&#123;username&#125;</span>`</span>) <span class="comment">// -&gt; /user/eduardo</span></span><br><span class="line"><span class="comment">// 同样</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">`/user/<span class="subst">$&#123;username&#125;</span>`</span> &#125;) <span class="comment">// -&gt; /user/eduardo</span></span><br><span class="line"><span class="comment">// 如果可能的话，使用 `name` 和 `params` 从自动 URL 编码中获益</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;user&#x27;</span>, <span class="attr">params</span>: &#123; username &#125; &#125;) <span class="comment">// -&gt; /user/eduardo</span></span><br><span class="line"><span class="comment">// `params` 不能与 `path` 一起使用</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span>, <span class="attr">params</span>: &#123; username &#125; &#125;) <span class="comment">// -&gt; /user</span></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="替换当前位置"><a href="#替换当前位置" class="headerlink" title="替换当前位置"></a>替换当前位置</h5><p>它的作用类似于 <code>router.push</code>，唯一不同的是，它在导航时不会向 history 添加新记录，正如它的名字所暗示的那样——它取代了当前的条目。也可以直接在传递给 <code>router.push</code> 的 <code>to</code> 参数中增加一个属性 <code>replace: true</code> ：</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>, <span class="attr">replace</span>: <span class="literal">true</span> &#125;)</span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line">router.<span class="title function_">replace</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span> &#125;)</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="横跨历史"><a href="#横跨历史" class="headerlink" title="横跨历史"></a>横跨历史</h5><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 向前移动一条记录，与 router.forward() 相同</span></span><br><span class="line">router.<span class="title function_">go</span>(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回一条记录，与 router.back() 相同</span></span><br><span class="line">router.<span class="title function_">go</span>(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 前进 3 条记录</span></span><br><span class="line">router.<span class="title function_">go</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果没有那么多记录，静默失败</span></span><br><span class="line">router.<span class="title function_">go</span>(-<span class="number">100</span>)</span><br><span class="line">router.<span class="title function_">go</span>(<span class="number">100</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="五、路由组件传参"><a href="#五、路由组件传参" class="headerlink" title="五、路由组件传参"></a>五、路由组件传参</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- User.vue --&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    </span><br><span class="line">defineProps(&#123;</span><br><span class="line">  id: String</span><br><span class="line">&#125;)</span><br><span class="line">    </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    User &#123;&#123; id &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>然后我们可以通过设置 <code>props: true</code> 来配置路由将 <code>id</code> 参数作为 prop 传递给组件：</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;/user/:id&#x27;</span>, <span class="attr">component</span>: <span class="title class_">User</span>, <span class="attr">props</span>: <span class="literal">true</span> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>前端应用</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>Router</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue3中Pinia的基本使用</title>
     <url>/2024/11/19/Vue3%E4%B8%AD%E4%BD%BF%E7%94%A8Pinia%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h3 id="Pinia-介绍"><a href="#Pinia-介绍" class="headerlink" title="Pinia 介绍"></a><a class="link"   href="https://pinia.web3doc.top/" >Pinia</a> 介绍</h3><p>Pinia是一个专门为Vue.js设计的状态管理库，它提供了一种简单和直观的方式来管理应用程序的状态。在使用Pinia时，可以轻松地创建定义状态的存储，然后将其与Vue组件绑定，使它们能够使用该状态。和Vuex相比，Pinia 更加简单易用，体积更小，同时具有更好的 TypeScript 支持和插件系统。</p>
@@ -122,8 +202,8 @@
         <category>前端应用</category>
       </categories>
       <tags>
-        <tag>Pinia</tag>
         <tag>Vue</tag>
+        <tag>Pinia</tag>
       </tags>
   </entry>
   <entry>
@@ -208,29 +288,6 @@
       </tags>
   </entry>
   <entry>
-    <title>个人第一篇博客</title>
-    <url>/2024/11/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
-<li>这是我的第一篇个人博客，作为初学者，这算是一个新的开始，程序员总该要有一个属于自己的网站吧！</li>
-<li>搭建这个blog的目的是想记录一些东西，技术上的也好，日常生活也好，过程中也能学习到不少东西，说干就干！</li>
-</ul>
-<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>进入程序员这行已经有2年时间了，从技术小白一路走来，学过的知识和做过的项目都不曾好好地去总结，所以想找个地方好好记录下来。</p>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>大学四年时候给我的第一感受是，修完学校的课程后，发现出来工作用得上的少之又少，如今大环境经济形势 不好，跳槽也很难，要想找到满意的工作就不得不提高自己的技术和水平，所以要想深入了解开发技术必须要用业余时间来学习记录和总结。</p>
-<h3 id="入行"><a href="#入行" class="headerlink" title="入行"></a>入行</h3><p>毕业后第一件事当然是找工作啦，兜兜转转两个月，找到了一家做农业的物联网公司，正好缺一个应届毕业生做网页开发，于是就开启了搬砖生活。公司规模不大，平时的工作是写写web前端的页面，刚入职不久就去山西出差做项目了，老板可能看我表现还可以，完成了基本考核后正式转正成了一名前端开发。</p>
-<h3 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h3><p>大学期间主要学的java，js，html，css什么都学一点，所以技术上来说不是很深入，<a class="link"   href="https://cn.vuejs.org/guide/introduction.html" >Vue</a>是近几年比较火的前端框架，为了快点提高技术自己又花时间去网上看文档视频，js，css，html也是重新学习了一下，然后就直接开始实际做项目。刚开始使用技术不够熟练，踩了不少坑，一个自适应页面折腾了好几个月才勉强搞定，现在熟悉了以后看之前写的代码不禁感叹我以前这么菜的啊，哈哈。</p>
-<h3 id="业余生活"><a href="#业余生活" class="headerlink" title="业余生活"></a>业余生活</h3><p>工作是双休制不加班，所以平常有事没事就和同学朋友出去玩，爬爬山吃吃饭唱唱歌啥的，总之比较爱玩。可能是大学生活过的太爽了，现在已经成了一个小胖子了（大一那会还是挺瘦的），之前膝盖受过伤，爬山又开始有点膝盖疼了，腿脚也不利索了也就爬的少了。本来我也是个不追星的人，谁知道突然杀出来个赵雷，他的歌给人一种朴实且真诚的感觉，后面就越来越喜欢了，偶尔会去看看他音乐节。今年错过了“没有信号”巡演和阿那亚限时返场，真是遗憾。其他的话偶尔追追剧、看看电影、学学吉他。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>尽量每周写一篇记录一下生活、技术的博客，总结一下经验。明年想离开桂林去外边的世界看看，得多提升一下自己才行！</p>
-]]></content>
-      <categories>
-        <category>记录生活</category>
-        <category>第一篇博客</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>新的开始</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>阿里云短信验证码登录功能</title>
     <url>/2024/12/20/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<h3 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h3><h6 id="1、登录阿里云进入到短信服务：阿里云-短信服务"><a href="#1、登录阿里云进入到短信服务：阿里云-短信服务" class="headerlink" title="1、登录阿里云进入到短信服务：阿里云-短信服务"></a>1、登录阿里云进入到短信服务：<a class="link"   href="https://dysms.console.aliyun.com/overview" >阿里云-短信服务</a></h6><h6 id="2、按照首页提示一次完成相应的资质认证和短信模板审核；"><a href="#2、按照首页提示一次完成相应的资质认证和短信模板审核；" class="headerlink" title="2、按照首页提示一次完成相应的资质认证和短信模板审核；"></a>2、按照首页提示一次完成相应的<strong>资质认证</strong>和<strong>短信模板</strong>审核；</h6><p><img  
@@ -279,6 +336,29 @@
       <tags>
         <tag>阿里云</tag>
         <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人第一篇博客</title>
+    <url>/2024/11/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>这是我的第一篇个人博客，作为初学者，这算是一个新的开始，程序员总该要有一个属于自己的网站吧！</li>
+<li>搭建这个blog的目的是想记录一些东西，技术上的也好，日常生活也好，过程中也能学习到不少东西，说干就干！</li>
+</ul>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>进入程序员这行已经有2年时间了，从技术小白一路走来，学过的知识和做过的项目都不曾好好地去总结，所以想找个地方好好记录下来。</p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>大学四年时候给我的第一感受是，修完学校的课程后，发现出来工作用得上的少之又少，如今大环境经济形势 不好，跳槽也很难，要想找到满意的工作就不得不提高自己的技术和水平，所以要想深入了解开发技术必须要用业余时间来学习记录和总结。</p>
+<h3 id="入行"><a href="#入行" class="headerlink" title="入行"></a>入行</h3><p>毕业后第一件事当然是找工作啦，兜兜转转两个月，找到了一家做农业的物联网公司，正好缺一个应届毕业生做网页开发，于是就开启了搬砖生活。公司规模不大，平时的工作是写写web前端的页面，刚入职不久就去山西出差做项目了，老板可能看我表现还可以，完成了基本考核后正式转正成了一名前端开发。</p>
+<h3 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h3><p>大学期间主要学的java，js，html，css什么都学一点，所以技术上来说不是很深入，<a class="link"   href="https://cn.vuejs.org/guide/introduction.html" >Vue</a>是近几年比较火的前端框架，为了快点提高技术自己又花时间去网上看文档视频，js，css，html也是重新学习了一下，然后就直接开始实际做项目。刚开始使用技术不够熟练，踩了不少坑，一个自适应页面折腾了好几个月才勉强搞定，现在熟悉了以后看之前写的代码不禁感叹我以前这么菜的啊，哈哈。</p>
+<h3 id="业余生活"><a href="#业余生活" class="headerlink" title="业余生活"></a>业余生活</h3><p>工作是双休制不加班，所以平常有事没事就和同学朋友出去玩，爬爬山吃吃饭唱唱歌啥的，总之比较爱玩。可能是大学生活过的太爽了，现在已经成了一个小胖子了（大一那会还是挺瘦的），之前膝盖受过伤，爬山又开始有点膝盖疼了，腿脚也不利索了也就爬的少了。本来我也是个不追星的人，谁知道突然杀出来个赵雷，他的歌给人一种朴实且真诚的感觉，后面就越来越喜欢了，偶尔会去看看他音乐节。今年错过了“没有信号”巡演和阿那亚限时返场，真是遗憾。其他的话偶尔追追剧、看看电影、学学吉他。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>尽量每周写一篇记录一下生活、技术的博客，总结一下经验。明年想离开桂林去外边的世界看看，得多提升一下自己才行！</p>
+]]></content>
+      <categories>
+        <category>记录生活</category>
+        <category>第一篇博客</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>新的开始</tag>
       </tags>
   </entry>
 </search>
