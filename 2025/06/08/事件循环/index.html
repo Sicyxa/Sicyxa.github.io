@@ -32,13 +32,13 @@
 <meta property="og:description" content="事件循环浏览器的进程模型何为进程？程序运行需要有它自己专属的内存空间，可以把这块内存空间简单的理解为进程   每个应用至少有一个进程，进程之间相互独立，即使要通信，也需要双方同意。 何为线程？有了进程后，就可以运行程序的代码了。 运行代码的「人」称之为「线程」。 一个进程至少有一个线程，所以在进程开启后会自动创建一个线程来运行代码，该线程称之为主线程。 如果程序需要同时执行多块代码，主线程就会启动">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mdrs.yuanjin.tech/img/202208092057573.png">
-<meta property="og:image" content="http://mdrs.yuanjin.tech/img/202208092108499.png">
-<meta property="og:image" content="http://mdrs.yuanjin.tech/img/202208092131410.png">
-<meta property="og:image" content="http://mdrs.yuanjin.tech/img/202208092230847.png">
-<meta property="og:image" content="http://mdrs.yuanjin.tech/img/202208101043348.png">
-<meta property="og:image" content="http://mdrs.yuanjin.tech/img/202208101048899.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/68479a3558cb8da5c83f596f.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/68479a5b58cb8da5c83f59ae.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/68479a7458cb8da5c83f59d9.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/68479a9358cb8da5c83f59ff.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/68479aa058cb8da5c83f5a13.png">
 <meta property="article:published_time" content="2025-06-08T14:19:57.000Z">
-<meta property="article:modified_time" content="2025-06-08T14:26:29.396Z">
+<meta property="article:modified_time" content="2025-06-10T02:38:44.371Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -439,8 +439,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-06-08 22:26:29</span>
-            <span class="mobile">2025-06-08 22:26:29</span>
+            <span class="desktop">2025-06-10 10:38:44</span>
+            <span class="mobile">2025-06-10 10:38:44</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -518,8 +518,8 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="http://mdrs.yuanjin.tech/img/202208092108499.png"
-                      alt="image-20220809210859457"
+                     data-src="https://pic1.imgdb.cn/item/68479a3558cb8da5c83f596f.png"
+                     
                 ></p>
 <h3 id="浏览器有哪些进程和线程？"><a href="#浏览器有哪些进程和线程？" class="headerlink" title="浏览器有哪些进程和线程？"></a>浏览器有哪些进程和线程？</h3><p><strong>浏览器是一个多进程多线程的应用程序</strong></p>
 <p>浏览器内部工作极其复杂。</p>
@@ -527,8 +527,8 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="http://mdrs.yuanjin.tech/img/202208092131410.png"
-                      alt="image-20220809213152371"
+                     data-src="https://pic1.imgdb.cn/item/68479a5b58cb8da5c83f59ae.png"
+                     
                 ></p>
 <blockquote>
 <p>可以在浏览器的任务管理器中查看当前的所有进程</p>
@@ -574,8 +574,8 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="http://mdrs.yuanjin.tech/img/202208092230847.png"
-                      alt="image-20220809223027806"
+                     data-src="https://pic1.imgdb.cn/item/68479a7458cb8da5c83f59d9.png"
+                     
                 ></p>
 <ol>
 <li>在最开始的时候，渲染主线程会进入一个无限循环</li>
@@ -594,16 +594,16 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="http://mdrs.yuanjin.tech/img/202208101043348.png"
-                      alt="image-20220810104344296"
+                     data-src="https://pic1.imgdb.cn/item/68479a9358cb8da5c83f59ff.png"
+                     
                 ></p>
 <p><strong>渲染主线程承担着极其重要的工作，无论如何都不能阻塞！</strong></p>
 <p>因此，浏览器选择<strong>异步</strong>来解决这个问题</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="http://mdrs.yuanjin.tech/img/202208101048899.png"
-                      alt="image-20220810104858857"
+                     data-src="https://pic1.imgdb.cn/item/68479aa058cb8da5c83f5a13.png"
+                     
                 ></p>
 <p>使用异步的方式，<strong>渲染主线程永不阻塞</strong></p>
 <blockquote>
