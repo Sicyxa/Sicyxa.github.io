@@ -207,13 +207,94 @@
       </tags>
   </entry>
   <entry>
+    <title>使用Hexo快速搭建自己的博客系统</title>
+    <url>/2024/11/18/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h3 id="一、Git工具和Node-js的安装"><a href="#一、Git工具和Node-js的安装" class="headerlink" title="一、Git工具和Node.js的安装"></a>一、Git工具和Node.js的安装</h3><h4 id="1-Git工具的安装"><a href="#1-Git工具的安装" class="headerlink" title="1.Git工具的安装"></a>1.Git工具的安装</h4><p>打开<a class="link"   href="https://git-scm.com/" >Git</a>官网，无脑安装下一步即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/673aa748d29ded1a8c30ffae.png"
+                      alt="image-20241118102701780"
+                ></p>
+<p>Git安装成功：任一位置右击鼠标，会出现“Git GUI Here”和“Git Bash Here”，则表示安装成功。</p>
+<h4 id="2-Node-js的安装"><a href="#2-Node-js的安装" class="headerlink" title="2.Node.js的安装"></a>2.Node.js的安装</h4><p>打开<a class="link"   href="https://nodejs.org/zh-cn/" >Node.js官网</a>，点击下载，安装无脑下一步</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/673aa8fed29ded1a8c3224c9.png"
+                     
+                ></p>
+<p>Node.js安装成功：Win+r，输入cmd，回车，输入node -v，回车显示版本号，则表示安装成功。</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/673aa978d29ded1a8c3275d1.png"
+                     
+                ></p>
+<h3 id="二、Hexo安装"><a href="#二、Hexo安装" class="headerlink" title="二、Hexo安装"></a>二、Hexo安装</h3><h4 id="1-Hexo安装步骤"><a href="#1-Hexo安装步骤" class="headerlink" title="1.Hexo安装步骤"></a>1.Hexo安装步骤</h4><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//安装Hexo</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建博客目录</span></span><br><span class="line">mkdir blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//进入博客目录</span></span><br><span class="line">cd blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化hexo</span></span><br><span class="line">hexo init blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//安装所需依赖包</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动hexo项目</span></span><br><span class="line">hexo server 或者 hexo s</span><br></pre></td></tr></table></figure></div>
+
+<p>出现<a class="link"   href="http://localhost:4000/" >http://localhost:4000/</a> 则表示安装成功。访问就可以看到默认的hexo博客的页面。</p>
+<h3 id="三、编写博客内容"><a href="#三、编写博客内容" class="headerlink" title="三、编写博客内容"></a>三、编写博客内容</h3><ul>
+<li>可以安装自己喜欢的<a class="link"   href="https://hexo.io/themes/" >主题</a>，具体看主题文档使用！</li>
+<li>博客内容的格式是基于<a class="link"   href="https://markdown.com.cn/" >markdown</a>，需要提前学习一下其语法，比较简单！</li>
+</ul>
+<p>在命令行输入</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>可以看到在目录source下_posts多生成了一个格式为文章标题.md的文件，双击点开，推荐使用<a class="link"   href="https://www.typoraio.cn/" >Typora</a>来写文章，基本结构如下!</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">    <span class="attr">title</span>: 使用<span class="title class_">Hexo</span>搭建自己的博客网站</span><br><span class="line"><span class="attr">date</span>: <span class="number">2021</span>/<span class="number">10</span>/<span class="number">4</span></span><br><span class="line"><span class="attr">tags</span>:</span><br><span class="line">    - <span class="title class_">Hexo</span></span><br><span class="line"><span class="attr">categories</span>:</span><br><span class="line">    - blog</span><br><span class="line">---</span><br><span class="line"><span class="comment">//上面是博文开头，包括标题日期标签分类等等</span></span><br><span class="line"><span class="comment">//下面是内容（markdown语法）</span></span><br><span class="line"></span><br><span class="line">    hello world!</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//清除缓存文件和静态文件</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成静态博客文件</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动博客</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></div>
+
+<p>刷新<a class="link"   href="http://localhost:4000/" >http://localhost:4000/</a>  查看效果</p>
+<h3 id="四、发布博客"><a href="#四、发布博客" class="headerlink" title="四、发布博客"></a>四、发布博客</h3><p>1.创建一个以你的<a class="link"   href="https://github.com/" >GitHub</a>用户名命名的代码仓库，例如xxx.github.io</p>
+<p>2.安装deployer插件并配置deploy</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></div>
+
+<p>修改配置文件_config.yml配置deploy</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Deployment</span></span><br><span class="line"><span class="comment">// Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy</span>:</span><br><span class="line">    - <span class="attr">type</span>: git</span><br><span class="line"><span class="attr">repository</span>: git@github.<span class="property">com</span>:your_github_id/xxxx.<span class="property">github</span>.<span class="property">io</span>.<span class="property">git</span>   #点开你的仓库查看</span><br><span class="line"><span class="attr">branch</span>: master</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/673ab387d29ded1a8c3af37d.png"
+                     
+                ></p>
+<p>3.注册Git，配置远程连接</p>
+<p>在文件资源管理器中右键 - Open Git Bash here，打开git终端，输入以下两条命令，设置用户名和邮箱：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub邮箱&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>创建GitHub token</p>
+<p>打开自己的 GitHub 主页，点击自己的头像找到 Settings 并进入, 选择 developer settings 在左边目录栏找到 Personal access tokens，点击 Generate new token，按照步骤申请即可，过程比较简单, 这里不详述。</p>
+<p>4.在文件资源管理器中右键 - Open Git Bash here，打开git终端，输入以下三条命令发布博客</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean </span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></div>
+
+<p>提示输入github用户名密码输入就可以了</p>
+<p>5.验证是否发布成功</p>
+<p>浏览器打开自己的博客首页<a class="link"   href="https://sicyxa.github.io/%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%BA%86%EF%BC%81" >https://sicyxa.github.io/就可以看到自己的博客了！</a></p>
+<h3 id="五、相关链接"><a href="#五、相关链接" class="headerlink" title="五、相关链接"></a>五、相关链接</h3><p><a class="link"   href="https://hexo.io/docs/" >Hexo 官方文档</a></p>
+<p><a class="link"   href="https://hexo.io/zh-cn/docs/configuration" >Hexo 配置文档</a></p>
+<p><a class="link"   href="https://hexo.io/themes/" >Hexo 主题</a></p>
+<p>​	</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>事件循环</title>
     <url>/2025/06/08/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</url>
     <content><![CDATA[<h1 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h1><h2 id="浏览器的进程模型"><a href="#浏览器的进程模型" class="headerlink" title="浏览器的进程模型"></a>浏览器的进程模型</h2><h3 id="何为进程？"><a href="#何为进程？" class="headerlink" title="何为进程？"></a>何为进程？</h3><p>程序运行需要有它自己专属的内存空间，可以把这块内存空间简单的理解为进程</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="http://mdrs.yuanjin.tech/img/202208092057573.png"
+                     data-src="https://pic1.imgdb.cn/item/68479b3f58cb8da5c83f5cc4.png"
                       alt="image-20220809205743532" style="zoom:50%;" 
                 >
 
@@ -379,6 +460,29 @@
       </tags>
   </entry>
   <entry>
+    <title>个人第一篇博客</title>
+    <url>/2024/11/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>这是我的第一篇个人博客，作为初学者，这算是一个新的开始，程序员总该要有一个属于自己的网站吧！</li>
+<li>搭建这个blog的目的是想记录一些东西，技术上的也好，日常生活也好，过程中也能学习到不少东西，说干就干！</li>
+</ul>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>进入程序员这行已经有2年时间了，从技术小白一路走来，学过的知识和做过的项目都不曾好好地去总结，所以想找个地方好好记录下来。</p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>大学四年时候给我的第一感受是，修完学校的课程后，发现出来工作用得上的少之又少，如今大环境经济形势 不好，跳槽也很难，要想找到满意的工作就不得不提高自己的技术和水平，所以要想深入了解开发技术必须要用业余时间来学习记录和总结。</p>
+<h3 id="入行"><a href="#入行" class="headerlink" title="入行"></a>入行</h3><p>毕业后第一件事当然是找工作啦，兜兜转转两个月，找到了一家做农业的物联网公司，正好缺一个应届毕业生做网页开发，于是就开启了搬砖生活。公司规模不大，平时的工作是写写web前端的页面，刚入职不久就去山西出差做项目了，老板可能看我表现还可以，完成了基本考核后正式转正成了一名前端开发。</p>
+<h3 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h3><p>大学期间主要学的java，js，html，css什么都学一点，所以技术上来说不是很深入，<a class="link"   href="https://cn.vuejs.org/guide/introduction.html" >Vue</a>是近几年比较火的前端框架，为了快点提高技术自己又花时间去网上看文档视频，js，css，html也是重新学习了一下，然后就直接开始实际做项目。刚开始使用技术不够熟练，踩了不少坑，一个自适应页面折腾了好几个月才勉强搞定，现在熟悉了以后看之前写的代码不禁感叹我以前这么菜的啊，哈哈。</p>
+<h3 id="业余生活"><a href="#业余生活" class="headerlink" title="业余生活"></a>业余生活</h3><p>工作是双休制不加班，所以平常有事没事就和同学朋友出去玩，爬爬山吃吃饭唱唱歌啥的，总之比较爱玩。可能是大学生活过的太爽了，现在已经成了一个小胖子了（大一那会还是挺瘦的），之前膝盖受过伤，爬山又开始有点膝盖疼了，腿脚也不利索了也就爬的少了。本来我也是个不追星的人，谁知道突然杀出来个赵雷，他的歌给人一种朴实且真诚的感觉，后面就越来越喜欢了，偶尔会去看看他音乐节。今年错过了“没有信号”巡演和阿那亚限时返场，真是遗憾。其他的话偶尔追追剧、看看电影、学学吉他。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>尽量每周写一篇记录一下生活、技术的博客，总结一下经验。明年想离开桂林去外边的世界看看，得多提升一下自己才行！</p>
+]]></content>
+      <categories>
+        <category>记录生活</category>
+        <category>第一篇博客</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>新的开始</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>阿里云短信验证码登录功能</title>
     <url>/2024/12/20/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<h3 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h3><h6 id="1、登录阿里云进入到短信服务：阿里云-短信服务"><a href="#1、登录阿里云进入到短信服务：阿里云-短信服务" class="headerlink" title="1、登录阿里云进入到短信服务：阿里云-短信服务"></a>1、登录阿里云进入到短信服务：<a class="link"   href="https://dysms.console.aliyun.com/overview" >阿里云-短信服务</a></h6><h6 id="2、按照首页提示一次完成相应的资质认证和短信模板审核；"><a href="#2、按照首页提示一次完成相应的资质认证和短信模板审核；" class="headerlink" title="2、按照首页提示一次完成相应的资质认证和短信模板审核；"></a>2、按照首页提示一次完成相应的<strong>资质认证</strong>和<strong>短信模板</strong>审核；</h6><p><img  
@@ -427,110 +531,6 @@
       <tags>
         <tag>阿里云</tag>
         <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用Hexo快速搭建自己的博客系统</title>
-    <url>/2024/11/18/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h3 id="一、Git工具和Node-js的安装"><a href="#一、Git工具和Node-js的安装" class="headerlink" title="一、Git工具和Node.js的安装"></a>一、Git工具和Node.js的安装</h3><h4 id="1-Git工具的安装"><a href="#1-Git工具的安装" class="headerlink" title="1.Git工具的安装"></a>1.Git工具的安装</h4><p>打开<a class="link"   href="https://git-scm.com/" >Git</a>官网，无脑安装下一步即可。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://pic.imgdb.cn/item/673aa748d29ded1a8c30ffae.png"
-                      alt="image-20241118102701780"
-                ></p>
-<p>Git安装成功：任一位置右击鼠标，会出现“Git GUI Here”和“Git Bash Here”，则表示安装成功。</p>
-<h4 id="2-Node-js的安装"><a href="#2-Node-js的安装" class="headerlink" title="2.Node.js的安装"></a>2.Node.js的安装</h4><p>打开<a class="link"   href="https://nodejs.org/zh-cn/" >Node.js官网</a>，点击下载，安装无脑下一步</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://pic.imgdb.cn/item/673aa8fed29ded1a8c3224c9.png"
-                     
-                ></p>
-<p>Node.js安装成功：Win+r，输入cmd，回车，输入node -v，回车显示版本号，则表示安装成功。</p>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></div>
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://pic.imgdb.cn/item/673aa978d29ded1a8c3275d1.png"
-                     
-                ></p>
-<h3 id="二、Hexo安装"><a href="#二、Hexo安装" class="headerlink" title="二、Hexo安装"></a>二、Hexo安装</h3><h4 id="1-Hexo安装步骤"><a href="#1-Hexo安装步骤" class="headerlink" title="1.Hexo安装步骤"></a>1.Hexo安装步骤</h4><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//安装Hexo</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建博客目录</span></span><br><span class="line">mkdir blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//进入博客目录</span></span><br><span class="line">cd blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化hexo</span></span><br><span class="line">hexo init blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//安装所需依赖包</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动hexo项目</span></span><br><span class="line">hexo server 或者 hexo s</span><br></pre></td></tr></table></figure></div>
-
-<p>出现<a class="link"   href="http://localhost:4000/" >http://localhost:4000/</a> 则表示安装成功。访问就可以看到默认的hexo博客的页面。</p>
-<h3 id="三、编写博客内容"><a href="#三、编写博客内容" class="headerlink" title="三、编写博客内容"></a>三、编写博客内容</h3><ul>
-<li>可以安装自己喜欢的<a class="link"   href="https://hexo.io/themes/" >主题</a>，具体看主题文档使用！</li>
-<li>博客内容的格式是基于<a class="link"   href="https://markdown.com.cn/" >markdown</a>，需要提前学习一下其语法，比较简单！</li>
-</ul>
-<p>在命令行输入</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot;</span><br></pre></td></tr></table></figure></div>
-
-<p>可以看到在目录source下_posts多生成了一个格式为文章标题.md的文件，双击点开，推荐使用<a class="link"   href="https://www.typoraio.cn/" >Typora</a>来写文章，基本结构如下!</p>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">    <span class="attr">title</span>: 使用<span class="title class_">Hexo</span>搭建自己的博客网站</span><br><span class="line"><span class="attr">date</span>: <span class="number">2021</span>/<span class="number">10</span>/<span class="number">4</span></span><br><span class="line"><span class="attr">tags</span>:</span><br><span class="line">    - <span class="title class_">Hexo</span></span><br><span class="line"><span class="attr">categories</span>:</span><br><span class="line">    - blog</span><br><span class="line">---</span><br><span class="line"><span class="comment">//上面是博文开头，包括标题日期标签分类等等</span></span><br><span class="line"><span class="comment">//下面是内容（markdown语法）</span></span><br><span class="line"></span><br><span class="line">    hello world!</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//清除缓存文件和静态文件</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成静态博客文件</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动博客</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></div>
-
-<p>刷新<a class="link"   href="http://localhost:4000/" >http://localhost:4000/</a>  查看效果</p>
-<h3 id="四、发布博客"><a href="#四、发布博客" class="headerlink" title="四、发布博客"></a>四、发布博客</h3><p>1.创建一个以你的<a class="link"   href="https://github.com/" >GitHub</a>用户名命名的代码仓库，例如xxx.github.io</p>
-<p>2.安装deployer插件并配置deploy</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></div>
-
-<p>修改配置文件_config.yml配置deploy</p>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Deployment</span></span><br><span class="line"><span class="comment">// Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy</span>:</span><br><span class="line">    - <span class="attr">type</span>: git</span><br><span class="line"><span class="attr">repository</span>: git@github.<span class="property">com</span>:your_github_id/xxxx.<span class="property">github</span>.<span class="property">io</span>.<span class="property">git</span>   #点开你的仓库查看</span><br><span class="line"><span class="attr">branch</span>: master</span><br></pre></td></tr></table></figure></div>
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://pic.imgdb.cn/item/673ab387d29ded1a8c3af37d.png"
-                     
-                ></p>
-<p>3.注册Git，配置远程连接</p>
-<p>在文件资源管理器中右键 - Open Git Bash here，打开git终端，输入以下两条命令，设置用户名和邮箱：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub邮箱&quot;</span><br></pre></td></tr></table></figure></div>
-
-<p>创建GitHub token</p>
-<p>打开自己的 GitHub 主页，点击自己的头像找到 Settings 并进入, 选择 developer settings 在左边目录栏找到 Personal access tokens，点击 Generate new token，按照步骤申请即可，过程比较简单, 这里不详述。</p>
-<p>4.在文件资源管理器中右键 - Open Git Bash here，打开git终端，输入以下三条命令发布博客</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean </span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></div>
-
-<p>提示输入github用户名密码输入就可以了</p>
-<p>5.验证是否发布成功</p>
-<p>浏览器打开自己的博客首页<a class="link"   href="https://sicyxa.github.io/%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%BA%86%EF%BC%81" >https://sicyxa.github.io/就可以看到自己的博客了！</a></p>
-<h3 id="五、相关链接"><a href="#五、相关链接" class="headerlink" title="五、相关链接"></a>五、相关链接</h3><p><a class="link"   href="https://hexo.io/docs/" >Hexo 官方文档</a></p>
-<p><a class="link"   href="https://hexo.io/zh-cn/docs/configuration" >Hexo 配置文档</a></p>
-<p><a class="link"   href="https://hexo.io/themes/" >Hexo 主题</a></p>
-<p>​	</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>个人第一篇博客</title>
-    <url>/2024/11/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
-<li>这是我的第一篇个人博客，作为初学者，这算是一个新的开始，程序员总该要有一个属于自己的网站吧！</li>
-<li>搭建这个blog的目的是想记录一些东西，技术上的也好，日常生活也好，过程中也能学习到不少东西，说干就干！</li>
-</ul>
-<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>进入程序员这行已经有2年时间了，从技术小白一路走来，学过的知识和做过的项目都不曾好好地去总结，所以想找个地方好好记录下来。</p>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>大学四年时候给我的第一感受是，修完学校的课程后，发现出来工作用得上的少之又少，如今大环境经济形势 不好，跳槽也很难，要想找到满意的工作就不得不提高自己的技术和水平，所以要想深入了解开发技术必须要用业余时间来学习记录和总结。</p>
-<h3 id="入行"><a href="#入行" class="headerlink" title="入行"></a>入行</h3><p>毕业后第一件事当然是找工作啦，兜兜转转两个月，找到了一家做农业的物联网公司，正好缺一个应届毕业生做网页开发，于是就开启了搬砖生活。公司规模不大，平时的工作是写写web前端的页面，刚入职不久就去山西出差做项目了，老板可能看我表现还可以，完成了基本考核后正式转正成了一名前端开发。</p>
-<h3 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h3><p>大学期间主要学的java，js，html，css什么都学一点，所以技术上来说不是很深入，<a class="link"   href="https://cn.vuejs.org/guide/introduction.html" >Vue</a>是近几年比较火的前端框架，为了快点提高技术自己又花时间去网上看文档视频，js，css，html也是重新学习了一下，然后就直接开始实际做项目。刚开始使用技术不够熟练，踩了不少坑，一个自适应页面折腾了好几个月才勉强搞定，现在熟悉了以后看之前写的代码不禁感叹我以前这么菜的啊，哈哈。</p>
-<h3 id="业余生活"><a href="#业余生活" class="headerlink" title="业余生活"></a>业余生活</h3><p>工作是双休制不加班，所以平常有事没事就和同学朋友出去玩，爬爬山吃吃饭唱唱歌啥的，总之比较爱玩。可能是大学生活过的太爽了，现在已经成了一个小胖子了（大一那会还是挺瘦的），之前膝盖受过伤，爬山又开始有点膝盖疼了，腿脚也不利索了也就爬的少了。本来我也是个不追星的人，谁知道突然杀出来个赵雷，他的歌给人一种朴实且真诚的感觉，后面就越来越喜欢了，偶尔会去看看他音乐节。今年错过了“没有信号”巡演和阿那亚限时返场，真是遗憾。其他的话偶尔追追剧、看看电影、学学吉他。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>尽量每周写一篇记录一下生活、技术的博客，总结一下经验。明年想离开桂林去外边的世界看看，得多提升一下自己才行！</p>
-]]></content>
-      <categories>
-        <category>记录生活</category>
-        <category>第一篇博客</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>新的开始</tag>
       </tags>
   </entry>
 </search>
