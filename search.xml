@@ -1,86 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ES6常用语法</title>
-    <url>/2024/11/23/ES6%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h3><p>ECMAScript 6.0（也可以称为ECMAScript2015），ECMAScript 6.0简称 ES6，是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
-<h3 id="1、块级作用域（let、const）"><a href="#1、块级作用域（let、const）" class="headerlink" title="1、块级作用域（let、const）"></a>1、块级作用域（let、const）</h3><ul>
-<li>块级作用域，就是其使用范围只有在{}中起作用，不像之前var定义的变量都是函数级作用域。</li>
-<li><font color="red">let</font> 和 <font color="red">const</font>不允许重复声明变量</li>
-<li><font color="red">let</font> 和 <font color="red">const</font> 声明的变量不会在预解析的时候解析（没有变量提升，需要先声明再使用）</li>
-<li><font color="red">let</font> 声明的变量的值可以改变，<font color="red">const</font>声明的变量值不可以改变，且声明的时候必须赋值。</li>
-</ul>
-<h3 id="2、解构赋值"><a href="#2、解构赋值" class="headerlink" title="2、解构赋值"></a>2、解构赋值</h3><p>从数组和对象中提取值，对变量进行赋值</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//1,2,3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象解构</span></span><br><span class="line"><span class="comment">//对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</span></span><br><span class="line"><span class="keyword">let</span> &#123;age,name&#125; = &#123;<span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,<span class="attr">age</span>:<span class="number">24</span>&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(age,name)   <span class="comment">//chenyuxiang,24</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c,d] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//h,e,l</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="3、模板字符串"><a href="#3、模板字符串" class="headerlink" title="3、模板字符串"></a>3、模板字符串</h3><p>反引号(&#96;&#96;)，变量(${})</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">`你好，<span class="subst">$&#123;msg&#125;</span>`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)   <span class="comment">//输出结果为：你好，hello world</span></span><br></pre></td></tr></table></figure></div>
-<h4 id="3-1、-字符串扩展-includes函数"><a href="#3-1、-字符串扩展-includes函数" class="headerlink" title="3.1、 字符串扩展- includes函数"></a>3.1、 字符串扩展- includes函数</h4><p>判断字符串中是否存在指定字符,返回布尔值，存在则为true，不存在则为false</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;chenyuxiang&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;c&quot;</span>))  <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;d&quot;</span>))  <span class="comment">//false</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="3-2-、字符串扩展-repeat函数"><a href="#3-2-、字符串扩展-repeat函数" class="headerlink" title="3.2 、字符串扩展- repeat函数"></a>3.2 、字符串扩展- repeat函数</h4><p>repeat()函数返回一个新的字符串，表示将原字符串重复n次</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;x&#x27;</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">3</span>)   <span class="comment">// &#x27;xxx&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">0</span>)  <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="4、数组扩展"><a href="#4、数组扩展" class="headerlink" title="4、数组扩展"></a>4、数组扩展</h3><h4 id="4-1、扩展运算符，数组合并"><a href="#4-1、扩展运算符，数组合并" class="headerlink" title="4.1、扩展运算符，数组合并"></a>4.1、扩展运算符，数组合并</h4><p>扩展运算符（spread）是三个点（<code>...</code>）。将一个数组转为用都好分隔的参数序列</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])   <span class="comment">//1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>,...[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">5</span>)  <span class="comment">//1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(...[<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>])</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr1 =[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> arr2 =[<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="comment">//合并数组</span></span><br><span class="line">[...arr1,...arr2]  <span class="comment">//[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="4-2-、Array-of"><a href="#4-2-、Array-of" class="headerlink" title="4.2 、Array.of"></a>4.2 、Array.of</h4><p>将一组值转化为数组，即新建数组</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr =<span class="title class_">Array</span>.<span class="title function_">of</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)  <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="4-3、-find方法"><a href="#4-3、-find方法" class="headerlink" title="4.3、 find方法"></a>4.3、 find方法</h4><p>（1）该方法主要应用于查找<font color="red">第一个</font>符合条件的数组元素<br>（2）它的参数是一个回调函数。在回调函数中可以写你要查找元素的条件,当条件成立为true时,返回该元素。如果没有符合条件的元素,返回值为undefined</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;<span class="keyword">return</span> item&gt;<span class="number">13</span>&#125;)               <span class="comment">//值  输出14</span></span><br><span class="line"><span class="keyword">let</span> res1 = arr.<span class="title function_">findIndex</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;retuen item&gt;<span class="number">13</span>&#125;)         <span class="comment">//索引 输出3</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="5、对象扩展-Object-assign"><a href="#5、对象扩展-Object-assign" class="headerlink" title="5、对象扩展 Object.assign"></a>5、对象扩展 Object.assign</h3><p><code>Object.assign()</code>方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> target =  &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source1 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source2 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.assign()方法的第一个参数是目标对象，后面的参数都是源对象。</span></span><br><span class="line"><span class="comment">//注意，如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Object</span>.<span class="title function_">assign</span>(target, source);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target); <span class="comment">//  &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">//&#123; a: 1, b: 4, c: 5 &#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="6、Set"><a href="#6、Set" class="headerlink" title="6、Set"></a>6、Set</h3><p>ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>].<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> s.<span class="title function_">add</span>(item))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> s)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)        <span class="comment">//2 3 5 4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>通过 add() 方法向 Set 结构加入成员，结果表明 Set 结构不会添加重复的,Set 函数可以接受一个数组作为参数</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])  </span><br><span class="line">..<span class="property">set</span>      <span class="comment">//1 2 3 4</span></span><br><span class="line">[...set]   <span class="comment">//[1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组去重的方法</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])]     <span class="comment">// [1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串去重</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(<span class="string">&#x27;ababbc&#x27;</span>)].<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)   <span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>向Set加入值的时候，不会发生类型转换，<font color=red>5</font>&gt;和<font color=red>“5”</font>是两个不同的值</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="number">5</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet) <span class="comment">//Set(2)&#123;&#x27;5&#x27;,5&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-1、-size属性"><a href="#6-1、-size属性" class="headerlink" title="6.1、 size属性"></a>6.1、 size属性</h4><p>返回 Set 实例的成员总数</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">const item = new Set ([1,2,3,4,5,5,5,5])</span><br><span class="line">item.size    //5</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-2、-delete"><a href="#6-2、-delete" class="headerlink" title="6.2、 delete()"></a>6.2、 delete()</h4><p>删除某个值，返回一个布尔值，表示删除是否</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">delete</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-3-、has"><a href="#6-3-、has" class="headerlink" title="6.3 、has()"></a>6.3 、has()</h4><p>返回一个布尔值，表示该值是否为Set的成员</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">has</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-4、-clear"><a href="#6-4、-clear" class="headerlink" title="6.4、 clear()"></a>6.4、 clear()</h4><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">clear</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet);  <span class="comment">// Set(0) &#123;size: 0&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="7、箭头函数"><a href="#7、箭头函数" class="headerlink" title="7、箭头函数"></a>7、箭头函数</h3><p>箭头函数作为普通函数的一个补充，将this指向了函数体之外最近一层的this，而不是向普通JS一样将this指向window变量。</p>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;cyx&quot;</span></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// chenyuxiang</span></span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">user.<span class="title function_">getName</span>()</span><br></pre></td></tr></table></figure></div>
-
-
-  <div class="note-large blue">
-    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
-      <p>提示</p>
-
-    </div>
-    <div class="notel-content">
-      <p>箭头函数里面根本没有自己的 this ，而是引用外层的 this。对于普通函数来说，内部的 this 指向函数运行时所在的对象，但是这 一点对箭头函数不成立。它没有自己的 this 对象，内部的 this 就是定 义时上层作用域中的 this</p>
-
-    </div>
-  </div>
-
-<h3 id="8、最后其他es6常用的语法"><a href="#8、最后其他es6常用的语法" class="headerlink" title="8、最后其他es6常用的语法"></a>8、最后其他es6常用的语法</h3><p><a class="link"   href="https://es6.ruanyifeng.com/#docs/promise" >promise对象 (JavaScript进阶之Ajax的问题和什么是promise)</a>)</p>
-<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/async" >asyn 和 await 函数 (fetch和axios接口调用方式的用法)</a>)</p>
-<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/array" >Es6简化操作的一些数组方法使用及原理</a></p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>前端应用</category>
-      </categories>
-      <tags>
-        <tag>ES6</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue Router的基本用法</title>
     <url>/2025/03/05/Router%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<h3 id="Vue-Router的基本用法"><a href="#Vue-Router的基本用法" class="headerlink" title="Vue Router的基本用法"></a>Vue Router的基本用法</h3><h3 id="一、安装使用步骤"><a href="#一、安装使用步骤" class="headerlink" title="一、安装使用步骤"></a>一、安装使用步骤</h3><p>对于一个现有的使用 JavaScript 包管理器的项目，你可以从 npm registry 中安装 Vue Router：</p>
@@ -161,6 +81,215 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6常用语法</title>
+    <url>/2024/11/23/ES6%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h3><p>ECMAScript 6.0（也可以称为ECMAScript2015），ECMAScript 6.0简称 ES6，是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
+<h3 id="1、块级作用域（let、const）"><a href="#1、块级作用域（let、const）" class="headerlink" title="1、块级作用域（let、const）"></a>1、块级作用域（let、const）</h3><ul>
+<li>块级作用域，就是其使用范围只有在{}中起作用，不像之前var定义的变量都是函数级作用域。</li>
+<li><font color="red">let</font> 和 <font color="red">const</font>不允许重复声明变量</li>
+<li><font color="red">let</font> 和 <font color="red">const</font> 声明的变量不会在预解析的时候解析（没有变量提升，需要先声明再使用）</li>
+<li><font color="red">let</font> 声明的变量的值可以改变，<font color="red">const</font>声明的变量值不可以改变，且声明的时候必须赋值。</li>
+</ul>
+<h3 id="2、解构赋值"><a href="#2、解构赋值" class="headerlink" title="2、解构赋值"></a>2、解构赋值</h3><p>从数组和对象中提取值，对变量进行赋值</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//1,2,3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象解构</span></span><br><span class="line"><span class="comment">//对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</span></span><br><span class="line"><span class="keyword">let</span> &#123;age,name&#125; = &#123;<span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,<span class="attr">age</span>:<span class="number">24</span>&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(age,name)   <span class="comment">//chenyuxiang,24</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c,d] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//h,e,l</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="3、模板字符串"><a href="#3、模板字符串" class="headerlink" title="3、模板字符串"></a>3、模板字符串</h3><p>反引号(&#96;&#96;)，变量(${})</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">`你好，<span class="subst">$&#123;msg&#125;</span>`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)   <span class="comment">//输出结果为：你好，hello world</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="3-1、-字符串扩展-includes函数"><a href="#3-1、-字符串扩展-includes函数" class="headerlink" title="3.1、 字符串扩展- includes函数"></a>3.1、 字符串扩展- includes函数</h4><p>判断字符串中是否存在指定字符,返回布尔值，存在则为true，不存在则为false</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;chenyuxiang&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;c&quot;</span>))  <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;d&quot;</span>))  <span class="comment">//false</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="3-2-、字符串扩展-repeat函数"><a href="#3-2-、字符串扩展-repeat函数" class="headerlink" title="3.2 、字符串扩展- repeat函数"></a>3.2 、字符串扩展- repeat函数</h4><p>repeat()函数返回一个新的字符串，表示将原字符串重复n次</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;x&#x27;</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">3</span>)   <span class="comment">// &#x27;xxx&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">0</span>)  <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="4、数组扩展"><a href="#4、数组扩展" class="headerlink" title="4、数组扩展"></a>4、数组扩展</h3><h4 id="4-1、扩展运算符，数组合并"><a href="#4-1、扩展运算符，数组合并" class="headerlink" title="4.1、扩展运算符，数组合并"></a>4.1、扩展运算符，数组合并</h4><p>扩展运算符（spread）是三个点（<code>...</code>）。将一个数组转为用都好分隔的参数序列</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])   <span class="comment">//1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>,...[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">5</span>)  <span class="comment">//1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(...[<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>])</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr1 =[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> arr2 =[<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="comment">//合并数组</span></span><br><span class="line">[...arr1,...arr2]  <span class="comment">//[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4-2-、Array-of"><a href="#4-2-、Array-of" class="headerlink" title="4.2 、Array.of"></a>4.2 、Array.of</h4><p>将一组值转化为数组，即新建数组</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr =<span class="title class_">Array</span>.<span class="title function_">of</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)  <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4-3、-find方法"><a href="#4-3、-find方法" class="headerlink" title="4.3、 find方法"></a>4.3、 find方法</h4><p>（1）该方法主要应用于查找<font color="red">第一个</font>符合条件的数组元素<br>（2）它的参数是一个回调函数。在回调函数中可以写你要查找元素的条件,当条件成立为true时,返回该元素。如果没有符合条件的元素,返回值为undefined</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;<span class="keyword">return</span> item&gt;<span class="number">13</span>&#125;)               <span class="comment">//值  输出14</span></span><br><span class="line"><span class="keyword">let</span> res1 = arr.<span class="title function_">findIndex</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;retuen item&gt;<span class="number">13</span>&#125;)         <span class="comment">//索引 输出3</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="5、对象扩展-Object-assign"><a href="#5、对象扩展-Object-assign" class="headerlink" title="5、对象扩展 Object.assign"></a>5、对象扩展 Object.assign</h3><p><code>Object.assign()</code>方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> target =  &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source1 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source2 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.assign()方法的第一个参数是目标对象，后面的参数都是源对象。</span></span><br><span class="line"><span class="comment">//注意，如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Object</span>.<span class="title function_">assign</span>(target, source);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target); <span class="comment">//  &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">//&#123; a: 1, b: 4, c: 5 &#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="6、Set"><a href="#6、Set" class="headerlink" title="6、Set"></a>6、Set</h3><p>ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>].<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> s.<span class="title function_">add</span>(item))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> s)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)        <span class="comment">//2 3 5 4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>通过 add() 方法向 Set 结构加入成员，结果表明 Set 结构不会添加重复的,Set 函数可以接受一个数组作为参数</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])  </span><br><span class="line">..<span class="property">set</span>      <span class="comment">//1 2 3 4</span></span><br><span class="line">[...set]   <span class="comment">//[1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组去重的方法</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])]     <span class="comment">// [1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串去重</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(<span class="string">&#x27;ababbc&#x27;</span>)].<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)   <span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>向Set加入值的时候，不会发生类型转换，<font color=red>5</font>&gt;和<font color=red>“5”</font>是两个不同的值</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="number">5</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet) <span class="comment">//Set(2)&#123;&#x27;5&#x27;,5&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-1、-size属性"><a href="#6-1、-size属性" class="headerlink" title="6.1、 size属性"></a>6.1、 size属性</h4><p>返回 Set 实例的成员总数</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">const item = new Set ([1,2,3,4,5,5,5,5])</span><br><span class="line">item.size    //5</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-2、-delete"><a href="#6-2、-delete" class="headerlink" title="6.2、 delete()"></a>6.2、 delete()</h4><p>删除某个值，返回一个布尔值，表示删除是否</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">delete</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-3-、has"><a href="#6-3-、has" class="headerlink" title="6.3 、has()"></a>6.3 、has()</h4><p>返回一个布尔值，表示该值是否为Set的成员</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">has</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-4、-clear"><a href="#6-4、-clear" class="headerlink" title="6.4、 clear()"></a>6.4、 clear()</h4><div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">clear</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet);  <span class="comment">// Set(0) &#123;size: 0&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="7、箭头函数"><a href="#7、箭头函数" class="headerlink" title="7、箭头函数"></a>7、箭头函数</h3><p>箭头函数作为普通函数的一个补充，将this指向了函数体之外最近一层的this，而不是向普通JS一样将this指向window变量。</p>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;cyx&quot;</span></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// chenyuxiang</span></span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">user.<span class="title function_">getName</span>()</span><br></pre></td></tr></table></figure></div>
+
+
+  <div class="note-large blue">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>提示</p>
+
+    </div>
+    <div class="notel-content">
+      <p>箭头函数里面根本没有自己的 this ，而是引用外层的 this。对于普通函数来说，内部的 this 指向函数运行时所在的对象，但是这 一点对箭头函数不成立。它没有自己的 this 对象，内部的 this 就是定 义时上层作用域中的 this</p>
+
+    </div>
+  </div>
+
+<h3 id="8、最后其他es6常用的语法"><a href="#8、最后其他es6常用的语法" class="headerlink" title="8、最后其他es6常用的语法"></a>8、最后其他es6常用的语法</h3><p><a class="link"   href="https://es6.ruanyifeng.com/#docs/promise" >promise对象 (JavaScript进阶之Ajax的问题和什么是promise)</a>)</p>
+<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/async" >asyn 和 await 函数 (fetch和axios接口调用方式的用法)</a>)</p>
+<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/array" >Es6简化操作的一些数组方法使用及原理</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>前端应用</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css实现居中的总结</title>
+    <url>/2025/06/20/css%E5%AE%9E%E7%8E%B0%E5%B1%85%E4%B8%AD%E7%9A%84%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="CSS实现居中的总结"><a href="#CSS实现居中的总结" class="headerlink" title="CSS实现居中的总结"></a>CSS实现居中的总结</h1><blockquote>
+<p>居中：下文所说的居中皆为盒子在其<strong>包含块</strong>中居中</p>
+</blockquote>
+<blockquote>
+<p>包含块：一个元素的尺寸和位置经常受其<strong>包含块</strong>（containing block）的影响。大多数情况下，包含块就是这个元素最近的祖先<a class="link"   href="https://developer.mozilla.org/zh-CN/docs/Glossary/Block-level_content" >块元素</a>的<a class="link"   href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#%E5%86%85%E5%AE%B9%E5%8C%BA%E5%9F%9F" >内容区域</a></p>
+</blockquote>
+<h2 id="包含块的基本规则"><a href="#包含块的基本规则" class="headerlink" title="包含块的基本规则"></a>包含块的基本规则</h2><p>1.根元素（html）的包含块：称之为初始包含块，通常与视口大小相同。</p>
+<p>2.其他元素的包含块：</p>
+<ul>
+<li>如果元素的position是<code>static</code>、<code>relative</code>或<code>sticky</code>，其包含块由最近的块级祖先元素的内容区域(Content Area)决定</li>
+<li>如果position是<code>absolute</code>，包含块由最近的position值不是<code>static</code>的祖先元素决定</li>
+<li>如果position是<code>fixed</code>，包含块通常由视口决定</li>
+</ul>
+<p>居中方式分为三种：水平居中，垂直居中，水平垂直居中。</p>
+<h2 id="1-水平居中"><a href="#1-水平居中" class="headerlink" title="1.水平居中"></a>1.水平居中</h2><p><strong>1.1、行盒水平居中</strong></p>
+<p>利用<code>text-align: center</code>可以实现在块盒内部的行盒水平居中。</p>
+<p>此方法对行盒(inline)，行块盒(inline-block)，行内表(inline-table)，inline-flex元素水平居中都有效。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;center-text&quot;&gt;</span><br><span class="line">	行盒水平居中</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.center-text</span>&#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">3px</span> solid lightblue;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/6854234e58cb8da5c85c06bf.png"
+                     
+                ></p>
+<p><strong>1.2、块盒元素水平居中</strong></p>
+<p><strong>固定宽度</strong>的块盒的<code>margin-left</code>和<code>margin-right</code>设成auto，就可以使块级元素水平居中。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">   &lt;p class=&quot;center-block&quot;&gt;块盒&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: lightblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.center-block</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">30%</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line">	<span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/6854266358cb8da5c85c07de.png"
+                     
+                ></p>
+<p><strong>1.3、多块盒水平居中</strong></p>
+<h6 id="利用inline-block"><a href="#利用inline-block" class="headerlink" title="利用inline-block"></a><strong>利用inline-block</strong></h6><p>如果一行中有两个或两个以上的块级元素，通过设置块级元素的显示类型为inline-block和父<a class="link"   href="https://cloud.tencent.com/product/tke?from_column=20065&from=20065" >容器</a>的text-align属性从而使多块级元素水平居中。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;inline-block&quot;&gt;块盒1&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;inline-block&quot;&gt;块盒2&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;inline-block&quot;&gt;块盒3&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.inline-block</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">30%</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+
+
+<p><strong>flex布局</strong></p>
+<p>利用弹性布局(flex)，实现水平居中，其中<code>justify-content</code>用于设置弹性盒子元素在主轴(横向)方向上的对齐方式。</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.inline-block</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">30%</span>;</span><br><span class="line">	<span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/685427e958cb8da5c85c08c7.png"
+                     
+                ></p>
+<h2 id="2-垂直居中"><a href="#2-垂直居中" class="headerlink" title="2.垂直居中"></a>2.垂直居中</h2><p><strong>2.1单行行盒垂直居中</strong></p>
+<p>通过设置内联元素的高度(height)和行高(line-height)相等，从而使元素垂直居中。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div id=&quot;box&quot;&gt;行盒垂直居中&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>flex布局</strong></p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/685429e458cb8da5c85c0abc.png"
+                     
+                ></p>
+<p><strong>2.2块盒垂直居中</strong></p>
+<p>使用绝对定位垂直居中：<strong>固定高度</strong>，设置上下的坐标为0，将上下的margin改成auto</p>
+<blockquote>
+<p>水平居中同理，<strong>固定宽度</strong>，设置左右坐标为0，将左右margin为auto</p>
+</blockquote>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;item&quot;&gt;块盒垂直居中&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>flex布局（推荐）</strong></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: lightblue;</span><br><span class="line">    display: flex;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>2.3未知高度的块盒垂直居中</strong></p>
+<p>当垂直居中的块级元素高度未知时，可以借助CSS3中的transform属性向Y轴反向偏移50%的方法实现垂直居中。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">.item&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    transform: translateY(-50%);;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/685430cd58cb8da5c85c0ca9.png"
+                     
+                ></p>
+<h2 id="3-水平垂直居中"><a href="#3-水平垂直居中" class="headerlink" title="3.水平垂直居中"></a>3.水平垂直居中</h2><p><strong>3.1 flex布局</strong></p>
+<p>通过设置  <strong>justify-content</strong> 和 <strong>align-items</strong>的值为<strong>center</strong>达到目的</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;item&quot;&gt;水平垂直居中&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;  //主轴方向水平居中</span><br><span class="line">    <span class="attribute">align-items</span>: center;      //交叉轴方向居中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>3.2 定位布局</strong></p>
+<p>父元素设置相对定位，子元素设置绝对定位，这时父元素是子元素的包含块，在设置上下左右的坐标为0，配合margin为auto实现，使用该方法必须<strong>固定宽高</strong>，不然宽度占满父元素，width的吸收剩余空间能力强于margin</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">40px</span>;  //必须设置宽度</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;  //必须设置高度</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>未知宽高的情况，利用2D变换，在水平和垂直方向都反向平移宽高的一半，从而使元素水平垂直居中。</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);  //</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/685436d658cb8da5c85c0f3f.png"
+                     
+                ></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue3中Pinia的基本使用</title>
     <url>/2024/11/19/Vue3%E4%B8%AD%E4%BD%BF%E7%94%A8Pinia%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h3 id="Pinia-介绍"><a href="#Pinia-介绍" class="headerlink" title="Pinia 介绍"></a><a class="link"   href="https://pinia.web3doc.top/" >Pinia</a> 介绍</h3><p>Pinia是一个专门为Vue.js设计的状态管理库，它提供了一种简单和直观的方式来管理应用程序的状态。在使用Pinia时，可以轻松地创建定义状态的存储，然后将其与Vue组件绑定，使它们能够使用该状态。和Vuex相比，Pinia 更加简单易用，体积更小，同时具有更好的 TypeScript 支持和插件系统。</p>
@@ -204,87 +333,6 @@
       <tags>
         <tag>Vue</tag>
         <tag>Pinia</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用Hexo快速搭建自己的博客系统</title>
-    <url>/2024/11/18/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h3 id="一、Git工具和Node-js的安装"><a href="#一、Git工具和Node-js的安装" class="headerlink" title="一、Git工具和Node.js的安装"></a>一、Git工具和Node.js的安装</h3><h4 id="1-Git工具的安装"><a href="#1-Git工具的安装" class="headerlink" title="1.Git工具的安装"></a>1.Git工具的安装</h4><p>打开<a class="link"   href="https://git-scm.com/" >Git</a>官网，无脑安装下一步即可。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://pic.imgdb.cn/item/673aa748d29ded1a8c30ffae.png"
-                      alt="image-20241118102701780"
-                ></p>
-<p>Git安装成功：任一位置右击鼠标，会出现“Git GUI Here”和“Git Bash Here”，则表示安装成功。</p>
-<h4 id="2-Node-js的安装"><a href="#2-Node-js的安装" class="headerlink" title="2.Node.js的安装"></a>2.Node.js的安装</h4><p>打开<a class="link"   href="https://nodejs.org/zh-cn/" >Node.js官网</a>，点击下载，安装无脑下一步</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://pic.imgdb.cn/item/673aa8fed29ded1a8c3224c9.png"
-                     
-                ></p>
-<p>Node.js安装成功：Win+r，输入cmd，回车，输入node -v，回车显示版本号，则表示安装成功。</p>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></div>
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://pic.imgdb.cn/item/673aa978d29ded1a8c3275d1.png"
-                     
-                ></p>
-<h3 id="二、Hexo安装"><a href="#二、Hexo安装" class="headerlink" title="二、Hexo安装"></a>二、Hexo安装</h3><h4 id="1-Hexo安装步骤"><a href="#1-Hexo安装步骤" class="headerlink" title="1.Hexo安装步骤"></a>1.Hexo安装步骤</h4><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//安装Hexo</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建博客目录</span></span><br><span class="line">mkdir blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//进入博客目录</span></span><br><span class="line">cd blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化hexo</span></span><br><span class="line">hexo init blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//安装所需依赖包</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动hexo项目</span></span><br><span class="line">hexo server 或者 hexo s</span><br></pre></td></tr></table></figure></div>
-
-<p>出现<a class="link"   href="http://localhost:4000/" >http://localhost:4000/</a> 则表示安装成功。访问就可以看到默认的hexo博客的页面。</p>
-<h3 id="三、编写博客内容"><a href="#三、编写博客内容" class="headerlink" title="三、编写博客内容"></a>三、编写博客内容</h3><ul>
-<li>可以安装自己喜欢的<a class="link"   href="https://hexo.io/themes/" >主题</a>，具体看主题文档使用！</li>
-<li>博客内容的格式是基于<a class="link"   href="https://markdown.com.cn/" >markdown</a>，需要提前学习一下其语法，比较简单！</li>
-</ul>
-<p>在命令行输入</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot;</span><br></pre></td></tr></table></figure></div>
-
-<p>可以看到在目录source下_posts多生成了一个格式为文章标题.md的文件，双击点开，推荐使用<a class="link"   href="https://www.typoraio.cn/" >Typora</a>来写文章，基本结构如下!</p>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">    <span class="attr">title</span>: 使用<span class="title class_">Hexo</span>搭建自己的博客网站</span><br><span class="line"><span class="attr">date</span>: <span class="number">2021</span>/<span class="number">10</span>/<span class="number">4</span></span><br><span class="line"><span class="attr">tags</span>:</span><br><span class="line">    - <span class="title class_">Hexo</span></span><br><span class="line"><span class="attr">categories</span>:</span><br><span class="line">    - blog</span><br><span class="line">---</span><br><span class="line"><span class="comment">//上面是博文开头，包括标题日期标签分类等等</span></span><br><span class="line"><span class="comment">//下面是内容（markdown语法）</span></span><br><span class="line"></span><br><span class="line">    hello world!</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//清除缓存文件和静态文件</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成静态博客文件</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动博客</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></div>
-
-<p>刷新<a class="link"   href="http://localhost:4000/" >http://localhost:4000/</a>  查看效果</p>
-<h3 id="四、发布博客"><a href="#四、发布博客" class="headerlink" title="四、发布博客"></a>四、发布博客</h3><p>1.创建一个以你的<a class="link"   href="https://github.com/" >GitHub</a>用户名命名的代码仓库，例如xxx.github.io</p>
-<p>2.安装deployer插件并配置deploy</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></div>
-
-<p>修改配置文件_config.yml配置deploy</p>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Deployment</span></span><br><span class="line"><span class="comment">// Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy</span>:</span><br><span class="line">    - <span class="attr">type</span>: git</span><br><span class="line"><span class="attr">repository</span>: git@github.<span class="property">com</span>:your_github_id/xxxx.<span class="property">github</span>.<span class="property">io</span>.<span class="property">git</span>   #点开你的仓库查看</span><br><span class="line"><span class="attr">branch</span>: master</span><br></pre></td></tr></table></figure></div>
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://pic.imgdb.cn/item/673ab387d29ded1a8c3af37d.png"
-                     
-                ></p>
-<p>3.注册Git，配置远程连接</p>
-<p>在文件资源管理器中右键 - Open Git Bash here，打开git终端，输入以下两条命令，设置用户名和邮箱：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub邮箱&quot;</span><br></pre></td></tr></table></figure></div>
-
-<p>创建GitHub token</p>
-<p>打开自己的 GitHub 主页，点击自己的头像找到 Settings 并进入, 选择 developer settings 在左边目录栏找到 Personal access tokens，点击 Generate new token，按照步骤申请即可，过程比较简单, 这里不详述。</p>
-<p>4.在文件资源管理器中右键 - Open Git Bash here，打开git终端，输入以下三条命令发布博客</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean </span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></div>
-
-<p>提示输入github用户名密码输入就可以了</p>
-<p>5.验证是否发布成功</p>
-<p>浏览器打开自己的博客首页<a class="link"   href="https://sicyxa.github.io/%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%BA%86%EF%BC%81" >https://sicyxa.github.io/就可以看到自己的博客了！</a></p>
-<h3 id="五、相关链接"><a href="#五、相关链接" class="headerlink" title="五、相关链接"></a>五、相关链接</h3><p><a class="link"   href="https://hexo.io/docs/" >Hexo 官方文档</a></p>
-<p><a class="link"   href="https://hexo.io/zh-cn/docs/configuration" >Hexo 配置文档</a></p>
-<p><a class="link"   href="https://hexo.io/themes/" >Hexo 主题</a></p>
-<p>​	</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -453,10 +501,92 @@
 </blockquote>
 ]]></content>
       <categories>
+        <category>技术笔记</category>
         <category>浏览器</category>
       </categories>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Hexo快速搭建自己的博客系统</title>
+    <url>/2024/11/18/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h3 id="一、Git工具和Node-js的安装"><a href="#一、Git工具和Node-js的安装" class="headerlink" title="一、Git工具和Node.js的安装"></a>一、Git工具和Node.js的安装</h3><h4 id="1-Git工具的安装"><a href="#1-Git工具的安装" class="headerlink" title="1.Git工具的安装"></a>1.Git工具的安装</h4><p>打开<a class="link"   href="https://git-scm.com/" >Git</a>官网，无脑安装下一步即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/673aa748d29ded1a8c30ffae.png"
+                      alt="image-20241118102701780"
+                ></p>
+<p>Git安装成功：任一位置右击鼠标，会出现“Git GUI Here”和“Git Bash Here”，则表示安装成功。</p>
+<h4 id="2-Node-js的安装"><a href="#2-Node-js的安装" class="headerlink" title="2.Node.js的安装"></a>2.Node.js的安装</h4><p>打开<a class="link"   href="https://nodejs.org/zh-cn/" >Node.js官网</a>，点击下载，安装无脑下一步</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/673aa8fed29ded1a8c3224c9.png"
+                     
+                ></p>
+<p>Node.js安装成功：Win+r，输入cmd，回车，输入node -v，回车显示版本号，则表示安装成功。</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/673aa978d29ded1a8c3275d1.png"
+                     
+                ></p>
+<h3 id="二、Hexo安装"><a href="#二、Hexo安装" class="headerlink" title="二、Hexo安装"></a>二、Hexo安装</h3><h4 id="1-Hexo安装步骤"><a href="#1-Hexo安装步骤" class="headerlink" title="1.Hexo安装步骤"></a>1.Hexo安装步骤</h4><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//安装Hexo</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建博客目录</span></span><br><span class="line">mkdir blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//进入博客目录</span></span><br><span class="line">cd blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化hexo</span></span><br><span class="line">hexo init blog</span><br><span class="line"></span><br><span class="line"><span class="comment">//安装所需依赖包</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动hexo项目</span></span><br><span class="line">hexo server 或者 hexo s</span><br></pre></td></tr></table></figure></div>
+
+<p>出现<a class="link"   href="http://localhost:4000/" >http://localhost:4000/</a> 则表示安装成功。访问就可以看到默认的hexo博客的页面。</p>
+<h3 id="三、编写博客内容"><a href="#三、编写博客内容" class="headerlink" title="三、编写博客内容"></a>三、编写博客内容</h3><ul>
+<li>可以安装自己喜欢的<a class="link"   href="https://hexo.io/themes/" >主题</a>，具体看主题文档使用！</li>
+<li>博客内容的格式是基于<a class="link"   href="https://markdown.com.cn/" >markdown</a>，需要提前学习一下其语法，比较简单！</li>
+</ul>
+<p>在命令行输入</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>可以看到在目录source下_posts多生成了一个格式为文章标题.md的文件，双击点开，推荐使用<a class="link"   href="https://www.typoraio.cn/" >Typora</a>来写文章，基本结构如下!</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">    <span class="attr">title</span>: 使用<span class="title class_">Hexo</span>搭建自己的博客网站</span><br><span class="line"><span class="attr">date</span>: <span class="number">2021</span>/<span class="number">10</span>/<span class="number">4</span></span><br><span class="line"><span class="attr">tags</span>:</span><br><span class="line">    - <span class="title class_">Hexo</span></span><br><span class="line"><span class="attr">categories</span>:</span><br><span class="line">    - blog</span><br><span class="line">---</span><br><span class="line"><span class="comment">//上面是博文开头，包括标题日期标签分类等等</span></span><br><span class="line"><span class="comment">//下面是内容（markdown语法）</span></span><br><span class="line"></span><br><span class="line">    hello world!</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//清除缓存文件和静态文件</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成静态博客文件</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">//启动博客</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></div>
+
+<p>刷新<a class="link"   href="http://localhost:4000/" >http://localhost:4000/</a>  查看效果</p>
+<h3 id="四、发布博客"><a href="#四、发布博客" class="headerlink" title="四、发布博客"></a>四、发布博客</h3><p>1.创建一个以你的<a class="link"   href="https://github.com/" >GitHub</a>用户名命名的代码仓库，例如xxx.github.io</p>
+<p>2.安装deployer插件并配置deploy</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></div>
+
+<p>修改配置文件_config.yml配置deploy</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Deployment</span></span><br><span class="line"><span class="comment">// Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy</span>:</span><br><span class="line">    - <span class="attr">type</span>: git</span><br><span class="line"><span class="attr">repository</span>: git@github.<span class="property">com</span>:your_github_id/xxxx.<span class="property">github</span>.<span class="property">io</span>.<span class="property">git</span>   #点开你的仓库查看</span><br><span class="line"><span class="attr">branch</span>: master</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic.imgdb.cn/item/673ab387d29ded1a8c3af37d.png"
+                     
+                ></p>
+<p>3.注册Git，配置远程连接</p>
+<p>在文件资源管理器中右键 - Open Git Bash here，打开git终端，输入以下两条命令，设置用户名和邮箱：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub邮箱&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>创建GitHub token</p>
+<p>打开自己的 GitHub 主页，点击自己的头像找到 Settings 并进入, 选择 developer settings 在左边目录栏找到 Personal access tokens，点击 Generate new token，按照步骤申请即可，过程比较简单, 这里不详述。</p>
+<p>4.在文件资源管理器中右键 - Open Git Bash here，打开git终端，输入以下三条命令发布博客</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean </span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></div>
+
+<p>提示输入github用户名密码输入就可以了</p>
+<p>5.验证是否发布成功</p>
+<p>浏览器打开自己的博客首页<a class="link"   href="https://sicyxa.github.io/%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E4%BA%86%EF%BC%81" >https://sicyxa.github.io/就可以看到自己的博客了！</a></p>
+<h3 id="五、相关链接"><a href="#五、相关链接" class="headerlink" title="五、相关链接"></a>五、相关链接</h3><p><a class="link"   href="https://hexo.io/docs/" >Hexo 官方文档</a></p>
+<p><a class="link"   href="https://hexo.io/zh-cn/docs/configuration" >Hexo 配置文档</a></p>
+<p><a class="link"   href="https://hexo.io/themes/" >Hexo 主题</a></p>
+<p>​	</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
