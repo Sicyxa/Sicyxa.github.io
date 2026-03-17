@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ES6常用语法</title>
+    <url>/2024/11/23/ES6%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h3><p>ECMAScript 6.0（也可以称为ECMAScript2015），ECMAScript 6.0简称 ES6，是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
+<h3 id="1、块级作用域（let、const）"><a href="#1、块级作用域（let、const）" class="headerlink" title="1、块级作用域（let、const）"></a>1、块级作用域（let、const）</h3><ul>
+<li>块级作用域，就是其使用范围只有在{}中起作用，不像之前var定义的变量都是函数级作用域。</li>
+<li><font color="red">let</font> 和 <font color="red">const</font>不允许重复声明变量</li>
+<li><font color="red">let</font> 和 <font color="red">const</font> 声明的变量不会在预解析的时候解析（没有变量提升，需要先声明再使用）</li>
+<li><font color="red">let</font> 声明的变量的值可以改变，<font color="red">const</font>声明的变量值不可以改变，且声明的时候必须赋值。</li>
+</ul>
+<h3 id="2、解构赋值"><a href="#2、解构赋值" class="headerlink" title="2、解构赋值"></a>2、解构赋值</h3><p>从数组和对象中提取值，对变量进行赋值</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//1,2,3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象解构</span></span><br><span class="line"><span class="comment">//对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</span></span><br><span class="line"><span class="keyword">let</span> &#123;age,name&#125; = &#123;<span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,<span class="attr">age</span>:<span class="number">24</span>&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(age,name)   <span class="comment">//chenyuxiang,24</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c,d] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//h,e,l</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="3、模板字符串"><a href="#3、模板字符串" class="headerlink" title="3、模板字符串"></a>3、模板字符串</h3><p>反引号(&#96;&#96;)，变量(${})</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">`你好，<span class="subst">$&#123;msg&#125;</span>`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)   <span class="comment">//输出结果为：你好，hello world</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="3-1、-字符串扩展-includes函数"><a href="#3-1、-字符串扩展-includes函数" class="headerlink" title="3.1、 字符串扩展- includes函数"></a>3.1、 字符串扩展- includes函数</h4><p>判断字符串中是否存在指定字符,返回布尔值，存在则为true，不存在则为false</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;chenyuxiang&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;c&quot;</span>))  <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;d&quot;</span>))  <span class="comment">//false</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="3-2-、字符串扩展-repeat函数"><a href="#3-2-、字符串扩展-repeat函数" class="headerlink" title="3.2 、字符串扩展- repeat函数"></a>3.2 、字符串扩展- repeat函数</h4><p>repeat()函数返回一个新的字符串，表示将原字符串重复n次</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;x&#x27;</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">3</span>)   <span class="comment">// &#x27;xxx&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">0</span>)  <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="4、数组扩展"><a href="#4、数组扩展" class="headerlink" title="4、数组扩展"></a>4、数组扩展</h3><h4 id="4-1、扩展运算符，数组合并"><a href="#4-1、扩展运算符，数组合并" class="headerlink" title="4.1、扩展运算符，数组合并"></a>4.1、扩展运算符，数组合并</h4><p>扩展运算符（spread）是三个点（<code>...</code>）。将一个数组转为用都好分隔的参数序列</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])   <span class="comment">//1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>,...[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">5</span>)  <span class="comment">//1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(...[<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>])</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr1 =[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> arr2 =[<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="comment">//合并数组</span></span><br><span class="line">[...arr1,...arr2]  <span class="comment">//[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4-2-、Array-of"><a href="#4-2-、Array-of" class="headerlink" title="4.2 、Array.of"></a>4.2 、Array.of</h4><p>将一组值转化为数组，即新建数组</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr =<span class="title class_">Array</span>.<span class="title function_">of</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)  <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4-3、-find方法"><a href="#4-3、-find方法" class="headerlink" title="4.3、 find方法"></a>4.3、 find方法</h4><p>（1）该方法主要应用于查找<font color="red">第一个</font>符合条件的数组元素<br>（2）它的参数是一个回调函数。在回调函数中可以写你要查找元素的条件,当条件成立为true时,返回该元素。如果没有符合条件的元素,返回值为undefined</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;<span class="keyword">return</span> item&gt;<span class="number">13</span>&#125;)               <span class="comment">//值  输出14</span></span><br><span class="line"><span class="keyword">let</span> res1 = arr.<span class="title function_">findIndex</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;retuen item&gt;<span class="number">13</span>&#125;)         <span class="comment">//索引 输出3</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="5、对象扩展-Object-assign"><a href="#5、对象扩展-Object-assign" class="headerlink" title="5、对象扩展 Object.assign"></a>5、对象扩展 Object.assign</h3><p><code>Object.assign()</code>方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> target =  &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source1 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source2 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.assign()方法的第一个参数是目标对象，后面的参数都是源对象。</span></span><br><span class="line"><span class="comment">//注意，如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Object</span>.<span class="title function_">assign</span>(target, source);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target); <span class="comment">//  &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">//&#123; a: 1, b: 4, c: 5 &#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="6、Set"><a href="#6、Set" class="headerlink" title="6、Set"></a>6、Set</h3><p>ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>].<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> s.<span class="title function_">add</span>(item))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> s)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)        <span class="comment">//2 3 5 4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>通过 add() 方法向 Set 结构加入成员，结果表明 Set 结构不会添加重复的,Set 函数可以接受一个数组作为参数</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])  </span><br><span class="line">..<span class="property">set</span>      <span class="comment">//1 2 3 4</span></span><br><span class="line">[...set]   <span class="comment">//[1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组去重的方法</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])]     <span class="comment">// [1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串去重</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(<span class="string">&#x27;ababbc&#x27;</span>)].<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)   <span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>向Set加入值的时候，不会发生类型转换，<font color=red>5</font>&gt;和<font color=red>“5”</font>是两个不同的值</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="number">5</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet) <span class="comment">//Set(2)&#123;&#x27;5&#x27;,5&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-1、-size属性"><a href="#6-1、-size属性" class="headerlink" title="6.1、 size属性"></a>6.1、 size属性</h4><p>返回 Set 实例的成员总数</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">const item = new Set ([1,2,3,4,5,5,5,5])</span><br><span class="line">item.size    //5</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-2、-delete"><a href="#6-2、-delete" class="headerlink" title="6.2、 delete()"></a>6.2、 delete()</h4><p>删除某个值，返回一个布尔值，表示删除是否</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">delete</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-3-、has"><a href="#6-3-、has" class="headerlink" title="6.3 、has()"></a>6.3 、has()</h4><p>返回一个布尔值，表示该值是否为Set的成员</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">has</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6-4、-clear"><a href="#6-4、-clear" class="headerlink" title="6.4、 clear()"></a>6.4、 clear()</h4><div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">clear</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet);  <span class="comment">// Set(0) &#123;size: 0&#125;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="7、箭头函数"><a href="#7、箭头函数" class="headerlink" title="7、箭头函数"></a>7、箭头函数</h3><p>箭头函数作为普通函数的一个补充，将this指向了函数体之外最近一层的this，而不是向普通JS一样将this指向window变量。</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;cyx&quot;</span></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// chenyuxiang</span></span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">user.<span class="title function_">getName</span>()</span><br></pre></td></tr></table></figure></div>
+
+<div class="callout callout--titled blue mb-4 rounded-small shadow-redefine-flat bg-(--callout-bg-color) p-3 pl-1 relative flex flex-row gap-2"><div role="none" class="rounded-full self-stretch w-0.5 bg-(--callout-primary-color) shrink-0 opacity-60"></div><div class="flex flex-col gap-2"><div class="callout__title flex items-center gap-2 font-semibold tracking-tight">提示</div><div class="callout__content markdown-body flex-1 min-w-0"><p>箭头函数里面根本没有自己的 this ，而是引用外层的 this。对于普通函数来说，内部的 this 指向函数运行时所在的对象，但是这 一点对箭头函数不成立。它没有自己的 this 对象，内部的 this 就是定 义时上层作用域中的 this</p></div></div></div>
+
+<h3 id="8、最后其他es6常用的语法"><a href="#8、最后其他es6常用的语法" class="headerlink" title="8、最后其他es6常用的语法"></a>8、最后其他es6常用的语法</h3><p><a class="link"   href="https://es6.ruanyifeng.com/#docs/promise" >promise对象 (JavaScript进阶之Ajax的问题和什么是promise)</a>)</p>
+<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/async" >asyn 和 await 函数 (fetch和axios接口调用方式的用法)</a>)</p>
+<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/array" >Es6简化操作的一些数组方法使用及原理</a></p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>前端应用</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>EnglishPod-2</title>
     <url>/2026/03/15/EnglishPod-2/</url>
     <content><![CDATA[<h1 id="Calling-In-Sick"><a href="#Calling-In-Sick" class="headerlink" title="Calling In Sick"></a>Calling In Sick</h1><a class="button not-markdown" href="https://pan.superbed.cn/disk/niwj3497/englishpod_B0002dg.mp3" title="播放音频"><i class="fa-solid" aria-hidden="true"></i> 播放音频</a>
@@ -107,73 +177,114 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6常用语法</title>
-    <url>/2024/11/23/ES6%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h3><p>ECMAScript 6.0（也可以称为ECMAScript2015），ECMAScript 6.0简称 ES6，是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
-<h3 id="1、块级作用域（let、const）"><a href="#1、块级作用域（let、const）" class="headerlink" title="1、块级作用域（let、const）"></a>1、块级作用域（let、const）</h3><ul>
-<li>块级作用域，就是其使用范围只有在{}中起作用，不像之前var定义的变量都是函数级作用域。</li>
-<li><font color="red">let</font> 和 <font color="red">const</font>不允许重复声明变量</li>
-<li><font color="red">let</font> 和 <font color="red">const</font> 声明的变量不会在预解析的时候解析（没有变量提升，需要先声明再使用）</li>
-<li><font color="red">let</font> 声明的变量的值可以改变，<font color="red">const</font>声明的变量值不可以改变，且声明的时候必须赋值。</li>
-</ul>
-<h3 id="2、解构赋值"><a href="#2、解构赋值" class="headerlink" title="2、解构赋值"></a>2、解构赋值</h3><p>从数组和对象中提取值，对变量进行赋值</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//数组解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//1,2,3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象解构</span></span><br><span class="line"><span class="comment">//对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</span></span><br><span class="line"><span class="keyword">let</span> &#123;age,name&#125; = &#123;<span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,<span class="attr">age</span>:<span class="number">24</span>&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(age,name)   <span class="comment">//chenyuxiang,24</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串解构</span></span><br><span class="line"><span class="keyword">const</span> [a,b,c,d] = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c)   <span class="comment">//h,e,l</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="3、模板字符串"><a href="#3、模板字符串" class="headerlink" title="3、模板字符串"></a>3、模板字符串</h3><p>反引号(&#96;&#96;)，变量(${})</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> msg = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">`你好，<span class="subst">$&#123;msg&#125;</span>`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)   <span class="comment">//输出结果为：你好，hello world</span></span><br></pre></td></tr></table></figure></div>
-<h4 id="3-1、-字符串扩展-includes函数"><a href="#3-1、-字符串扩展-includes函数" class="headerlink" title="3.1、 字符串扩展- includes函数"></a>3.1、 字符串扩展- includes函数</h4><p>判断字符串中是否存在指定字符,返回布尔值，存在则为true，不存在则为false</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;chenyuxiang&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;c&quot;</span>))  <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">includes</span>(<span class="string">&quot;d&quot;</span>))  <span class="comment">//false</span></span><br></pre></td></tr></table></figure></div>
+    <title>EnglishPod-4</title>
+    <url>/2026/03/17/EnglishPod-4/</url>
+    <content><![CDATA[<h1 id="I-need-an-assistant"><a href="#I-need-an-assistant" class="headerlink" title="I need an assistant!"></a>I need an assistant!</h1><a class="button not-markdown" href="https://pan.superbed.cn/disk/niwj3497/englishpod_C0004dg.mp3" title="播放音频"><i class="fa-solid" aria-hidden="true"></i> 播放音频</a>
 
-<h4 id="3-2-、字符串扩展-repeat函数"><a href="#3-2-、字符串扩展-repeat函数" class="headerlink" title="3.2 、字符串扩展- repeat函数"></a>3.2 、字符串扩展- repeat函数</h4><p>repeat()函数返回一个新的字符串，表示将原字符串重复n次</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;x&#x27;</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">3</span>)   <span class="comment">// &#x27;xxx&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">0</span>)  <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="4、数组扩展"><a href="#4、数组扩展" class="headerlink" title="4、数组扩展"></a>4、数组扩展</h3><h4 id="4-1、扩展运算符，数组合并"><a href="#4-1、扩展运算符，数组合并" class="headerlink" title="4.1、扩展运算符，数组合并"></a>4.1、扩展运算符，数组合并</h4><p>扩展运算符（spread）是三个点（<code>...</code>）。将一个数组转为用都好分隔的参数序列</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])   <span class="comment">//1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>,...[<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">5</span>)  <span class="comment">//1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(...[<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>])</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">14</span>,<span class="number">3</span>,<span class="number">77</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr1 =[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> arr2 =[<span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="comment">//合并数组</span></span><br><span class="line">[...arr1,...arr2]  <span class="comment">//[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="4-2-、Array-of"><a href="#4-2-、Array-of" class="headerlink" title="4.2 、Array.of"></a>4.2 、Array.of</h4><p>将一组值转化为数组，即新建数组</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr =<span class="title class_">Array</span>.<span class="title function_">of</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)  <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="4-3、-find方法"><a href="#4-3、-find方法" class="headerlink" title="4.3、 find方法"></a>4.3、 find方法</h4><p>（1）该方法主要应用于查找<font color="red">第一个</font>符合条件的数组元素<br>（2）它的参数是一个回调函数。在回调函数中可以写你要查找元素的条件,当条件成立为true时,返回该元素。如果没有符合条件的元素,返回值为undefined</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.<span class="title function_">find</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;<span class="keyword">return</span> item&gt;<span class="number">13</span>&#125;)               <span class="comment">//值  输出14</span></span><br><span class="line"><span class="keyword">let</span> res1 = arr.<span class="title function_">findIndex</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;retuen item&gt;<span class="number">13</span>&#125;)         <span class="comment">//索引 输出3</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="5、对象扩展-Object-assign"><a href="#5、对象扩展-Object-assign" class="headerlink" title="5、对象扩展 Object.assign"></a>5、对象扩展 Object.assign</h3><p><code>Object.assign()</code>方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> target =  &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source1 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> source2 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.assign()方法的第一个参数是目标对象，后面的参数都是源对象。</span></span><br><span class="line"><span class="comment">//注意，如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Object</span>.<span class="title function_">assign</span>(target, source);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target); <span class="comment">//  &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">//&#123; a: 1, b: 4, c: 5 &#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="6、Set"><a href="#6、Set" class="headerlink" title="6、Set"></a>6、Set</h3><p>ES6 提供了新的数据结构 Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>].<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> s.<span class="title function_">add</span>(item))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> s)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)        <span class="comment">//2 3 5 4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>通过 add() 方法向 Set 结构加入成员，结果表明 Set 结构不会添加重复的,Set 函数可以接受一个数组作为参数</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])  </span><br><span class="line">..<span class="property">set</span>      <span class="comment">//1 2 3 4</span></span><br><span class="line">[...set]   <span class="comment">//[1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组去重的方法</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>])]     <span class="comment">// [1,2,3,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串去重</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(<span class="string">&#x27;ababbc&#x27;</span>)].<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)   <span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>向Set加入值的时候，不会发生类型转换，<font color=red>5</font>&gt;和<font color=red>“5”</font>是两个不同的值</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="number">5</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet) <span class="comment">//Set(2)&#123;&#x27;5&#x27;,5&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-1、-size属性"><a href="#6-1、-size属性" class="headerlink" title="6.1、 size属性"></a>6.1、 size属性</h4><p>返回 Set 实例的成员总数</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">const item = new Set ([1,2,3,4,5,5,5,5])</span><br><span class="line">item.size    //5</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-2、-delete"><a href="#6-2、-delete" class="headerlink" title="6.2、 delete()"></a>6.2、 delete()</h4><p>删除某个值，返回一个布尔值，表示删除是否</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">delete</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-3-、has"><a href="#6-3-、has" class="headerlink" title="6.3 、has()"></a>6.3 、has()</h4><p>返回一个布尔值，表示该值是否为Set的成员</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> flag = mySet.<span class="title function_">has</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(flag);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6-4、-clear"><a href="#6-4、-clear" class="headerlink" title="6.4、 clear()"></a>6.4、 clear()</h4><div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mySet = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line">mySet.<span class="title function_">add</span>(<span class="string">&quot;5&quot;</span>)</span><br><span class="line">mySet.<span class="title function_">clear</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(mySet);  <span class="comment">// Set(0) &#123;size: 0&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="7、箭头函数"><a href="#7、箭头函数" class="headerlink" title="7、箭头函数"></a>7、箭头函数</h3><p>箭头函数作为普通函数的一个补充，将this指向了函数体之外最近一层的this，而不是向普通JS一样将this指向window变量。</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;cyx&quot;</span></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&quot;chenyuxiang&quot;</span>,</span><br><span class="line">    <span class="title function_">getName</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); <span class="comment">// chenyuxiang</span></span><br><span class="line">       &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">user.<span class="title function_">getName</span>()</span><br></pre></td></tr></table></figure></div>
-
-<div class="callout callout--titled blue mb-4 rounded-small shadow-redefine-flat bg-(--callout-bg-color) p-3 pl-1 relative flex flex-row gap-2"><div role="none" class="rounded-full self-stretch w-0.5 bg-(--callout-primary-color) shrink-0 opacity-60"></div><div class="flex flex-col gap-2"><div class="callout__title flex items-center gap-2 font-semibold tracking-tight">提示</div><div class="callout__content markdown-body flex-1 min-w-0"><p>箭头函数里面根本没有自己的 this ，而是引用外层的 this。对于普通函数来说，内部的 this 指向函数运行时所在的对象，但是这 一点对箭头函数不成立。它没有自己的 this 对象，内部的 this 就是定 义时上层作用域中的 this</p></div></div></div>
-
-<h3 id="8、最后其他es6常用的语法"><a href="#8、最后其他es6常用的语法" class="headerlink" title="8、最后其他es6常用的语法"></a>8、最后其他es6常用的语法</h3><p><a class="link"   href="https://es6.ruanyifeng.com/#docs/promise" >promise对象 (JavaScript进阶之Ajax的问题和什么是promise)</a>)</p>
-<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/async" >asyn 和 await 函数 (fetch和axios接口调用方式的用法)</a>)</p>
-<p><a class="link"   href="https://es6.ruanyifeng.com/#docs/array" >Es6简化操作的一些数组方法使用及原理</a></p>
-]]></content>
+<table>
+<thead>
+<tr>
+<th>A:</th>
+<th align="left">…like I told you before, we just don’t have the resources to hire you an assistant.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>B:</td>
+<td align="left">I understand that, but the fact is we’re understaffed.</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>A:</td>
+<td align="left">The timing is just not right. The economy is bad, and it’s too risky to take on new staff.</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>B:</td>
+<td align="left">Yeah, I guess you’re right…. here’s an idea, what if we hire an intern? She would take some of the weight off my shoulders.</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>A:</td>
+<td align="left">She?</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>B:</td>
+<td align="left">Yeah, you know, a recent graduate. She could give me a hand with some of these projects and we could keep our costs down.</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>A:</td>
+<td align="left">That sounds reasonable… let me see what I can do.</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>A:</td>
+<td align="left">Tony, I’d like to introduce you to your new assistant.</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>B:</td>
+<td align="left">OK, great! Let’s meet her!</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>C:</td>
+<td align="left">Hi, I’m Adam.</td>
+</tr>
+<tr>
+<td></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>B:</td>
+<td align="left">Oh… hi… I’m Tony…</td>
+</tr>
+</tbody></table>
+<h1 id="Key-Vocabulary"><a href="#Key-Vocabulary" class="headerlink" title="Key Vocabulary"></a>Key Vocabulary</h1><p><strong>Resources</strong>(money or wealth)</p>
+<p><strong>Understaffed</strong>(means that don’t have enough workers&#x2F;employees)</p>
+<p><strong>The timing is just not right</strong>(it’s just not a good time)</p>
+<p><strong>Weight off my shoulders</strong>(help me with my work or take some of my work away from me!)</p>
+<p><strong>Give me a hand</strong>( another way of saying help or to help out)</p>
+<p><strong>Keep our costs down</strong>(don’t want to have unnecessary spending)</p>
+<p><strong>Hire</strong>(employ &#x2F; recruit)  <strong>Staff</strong>(worker)</p>
+<p><strong>Assistant</strong>(helper)</p>
+<p><strong>Intern</strong>(recent graduate )</p>
+<p><strong>That sounds reasonable</strong>(is OK)</p>
+<h5 id="资源链接"><a href="#资源链接" class="headerlink" title="资源链接"></a><a class="link"   href="http://s3.amazonaws.com/englishpod.com/0004/82ec02e174c91a053a4d676a6fe14e34248cf9ea/pdf/englishpod_B0004.html" >资源链接</a></h5>]]></content>
       <categories>
-        <category>技术笔记</category>
-        <category>前端应用</category>
+        <category>EnglishPod</category>
       </categories>
       <tags>
-        <tag>ES6</tag>
-        <tag>JavaScript</tag>
+        <tag>English Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -465,6 +576,86 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue Router的基本用法</title>
+    <url>/2025/03/05/Router%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="Vue-Router的基本用法"><a href="#Vue-Router的基本用法" class="headerlink" title="Vue Router的基本用法"></a>Vue Router的基本用法</h3><h3 id="一、安装使用步骤"><a href="#一、安装使用步骤" class="headerlink" title="一、安装使用步骤"></a>一、安装使用步骤</h3><p>对于一个现有的使用 JavaScript 包管理器的项目，你可以从 npm registry 中安装 Vue Router：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install vue-router@4</span><br></pre></td></tr></table></figure></div>
+
+<p>新建文件src&#x2F;router&#x2F;index.js</p>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createWebHistory, createRouter &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//配置路由映射：组件和路径映射关系的routes数组</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; </span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;./HomeView.vue&#x27;</span>)</span><br><span class="line">  &#125;, </span><br><span class="line">  &#123; </span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;./AboutView.vue&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过createRouter创建路由对象，并且传入routes和history模式</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHistory</span>(),</span><br><span class="line">  routes,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//向外共享路由实例对象</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure></div>
+
+<p>在 src&#x2F;main.js 中导入注册 Vue Router</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> ‘./router’</span><br><span class="line">app.<span class="title function_">use</span>(router)</span><br></pre></td></tr></table></figure></div>
+
+<p>在App.vue中使用</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- App根组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;!-- 声明路由链接 --&gt;</span><br><span class="line">    &lt;router-link to=&quot;/home&quot;&gt;首页&lt;/router-link&gt;</span><br><span class="line">    &lt;router-link to=&quot;/about&quot;&gt;关于&lt;/router-link&gt;</span><br><span class="line">    &lt;!-- 声明路由占位符 --&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="二、动态路由匹配"><a href="#二、动态路由匹配" class="headerlink" title="二、动态路由匹配"></a>二、<a class="link"   href="https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html" >动态路由匹配</a></h3><p>很多时候，我们需要将给定匹配模式的路由映射到同一个组件。</p>
+<ul>
+<li><p>例如，我们可能有一个 <code>User</code> 组件，它应该对所有用户进行渲染，但用户 ID 不同。</p>
+</li>
+<li><p>在Vue Router中，我们可以在路径中使用一个动态字段来实现，我们称之为 路径参数；</p>
+</li>
+</ul>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; </span><br><span class="line">  	  <span class="comment">// 动态字段以冒号开始	</span></span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/users/:id&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;./User.vue&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>你可以在同一个路由中设置有多个 <em>路径参数</em>，它们会映射到 <code>$route.params</code> 上的相应字段。例如：</p>
+<table>
+<thead>
+<tr>
+<th align="left">匹配模式</th>
+<th align="left">匹配路径</th>
+<th align="left">route.params</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">&#x2F;users&#x2F;:username</td>
+<td align="left">&#x2F;users&#x2F;eduardo</td>
+<td align="left"><code>&#123; username: &#39;eduardo&#39; &#125;</code></td>
+</tr>
+<tr>
+<td align="left">&#x2F;users&#x2F;:username&#x2F;posts&#x2F;:postId</td>
+<td align="left">&#x2F;users&#x2F;eduardo&#x2F;posts&#x2F;123</td>
+<td align="left"><code>&#123; username: &#39;eduardo&#39;, postId: &#39;123&#39; &#125;</code></td>
+</tr>
+</tbody></table>
+<h5 id="获取动态路由的值："><a href="#获取动态路由的值：" class="headerlink" title="获取动态路由的值："></a>获取动态路由的值：</h5><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;User---&#123;&#123; $route.params.id &#125;&#125;&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    // setup中使用useRoute</span><br><span class="line">	import &#123;useRoute&#125; from &quot;vue-router&quot;</span><br><span class="line">    const router = useRoute()</span><br><span class="line">    console.log(route.params.id)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="三、路由命名"><a href="#三、路由命名" class="headerlink" title="三、路由命名"></a>三、路由命名</h3><p>当创建一个路由时，我们可以选择给路由一个 <code>name</code>：</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/user/:username&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;profile&#x27;</span>, </span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">User</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+<p>然后我们可以使用 <code>name</code> 而不是 <code>path</code> 来传递 <code>to</code> 属性给 <code>&lt;router-link&gt;</code>：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;router-link :to=&quot;&#123; name: &#x27;profile&#x27;, params: &#123; username: &#x27;erina&#x27; &#125; &#125;&quot;&gt;</span><br><span class="line">  User profile</span><br><span class="line">&lt;/router-link&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>上述示例将创建一个指向 <code>/user/erina</code> 的链接。</p>
+<h3 id="四、编程式导航"><a href="#四、编程式导航" class="headerlink" title="四、编程式导航"></a>四、编程式导航</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">    // setup中使用useRoute</span><br><span class="line">	import &#123;useRoute&#125; from &quot;vue-router&quot;</span><br><span class="line">    const router = useRoute()</span><br><span class="line">   	</span><br><span class="line">    //字符串路径</span><br><span class="line">    router.push(&#x27;/user/eduardo&#x27;)</span><br><span class="line">    </span><br><span class="line">    //带路径的对象</span><br><span class="line">    router.push(&#123;path:&#x27;/users/eduardo&#x27;&#125;)</span><br><span class="line">    </span><br><span class="line">    //命名的路由，并加上参数，让路由建立url</span><br><span class="line">    router.push(&#123;name:&#x27;user&#x27;,params:&#123;username:&#x27;eduardo&#x27;&#125;&#125;)</span><br><span class="line">    </span><br><span class="line">    //带查询参数，结果是 /register?plan=private</span><br><span class="line">    router.push(&#123;path:&#x27;/register&#x27;,query:&#123;plan:&#x27;private&#x27;&#125;&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>注意</strong>：如果提供了 <code>path</code>，<code>params</code> 会被忽略</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> username = <span class="string">&#x27;eduardo&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们可以手动建立 url，但我们必须自己处理编码</span></span><br><span class="line">router.<span class="title function_">push</span>(<span class="string">`/user/<span class="subst">$&#123;username&#125;</span>`</span>) <span class="comment">// -&gt; /user/eduardo</span></span><br><span class="line"><span class="comment">// 同样</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">`/user/<span class="subst">$&#123;username&#125;</span>`</span> &#125;) <span class="comment">// -&gt; /user/eduardo</span></span><br><span class="line"><span class="comment">// 如果可能的话，使用 `name` 和 `params` 从自动 URL 编码中获益</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;user&#x27;</span>, <span class="attr">params</span>: &#123; username &#125; &#125;) <span class="comment">// -&gt; /user/eduardo</span></span><br><span class="line"><span class="comment">// `params` 不能与 `path` 一起使用</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span>, <span class="attr">params</span>: &#123; username &#125; &#125;) <span class="comment">// -&gt; /user</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="替换当前位置"><a href="#替换当前位置" class="headerlink" title="替换当前位置"></a>替换当前位置</h4><p>它的作用类似于 <code>router.push</code>，唯一不同的是，它在导航时不会向 history 添加新记录，正如它的名字所暗示的那样——它取代了当前的条目。也可以直接在传递给 <code>router.push</code> 的 <code>to</code> 参数中增加一个属性 <code>replace: true</code> ：</p>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>, <span class="attr">replace</span>: <span class="literal">true</span> &#125;)</span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line">router.<span class="title function_">replace</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span> &#125;)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="横跨历史"><a href="#横跨历史" class="headerlink" title="横跨历史"></a>横跨历史</h4><div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 向前移动一条记录，与 router.forward() 相同</span></span><br><span class="line">router.<span class="title function_">go</span>(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回一条记录，与 router.back() 相同</span></span><br><span class="line">router.<span class="title function_">go</span>(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 前进 3 条记录</span></span><br><span class="line">router.<span class="title function_">go</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果没有那么多记录，静默失败</span></span><br><span class="line">router.<span class="title function_">go</span>(-<span class="number">100</span>)</span><br><span class="line">router.<span class="title function_">go</span>(<span class="number">100</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="五、路由组件传参"><a href="#五、路由组件传参" class="headerlink" title="五、路由组件传参"></a>五、路由组件传参</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- User.vue --&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    </span><br><span class="line">defineProps(&#123;</span><br><span class="line">  id: String</span><br><span class="line">&#125;)</span><br><span class="line">    </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    User &#123;&#123; id &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>然后我们可以通过设置 <code>props: true</code> 来配置路由将 <code>id</code> 参数作为 prop 传递给组件：</p>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;/user/:id&#x27;</span>, <span class="attr">component</span>: <span class="title class_">User</span>, <span class="attr">props</span>: <span class="literal">true</span> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>前端应用</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>Router</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue3中Pinia的基本使用</title>
     <url>/2024/11/19/Vue3%E4%B8%AD%E4%BD%BF%E7%94%A8Pinia%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h3 id="Pinia-介绍"><a href="#Pinia-介绍" class="headerlink" title="Pinia 介绍"></a><a class="link"   href="https://pinia.web3doc.top/" >Pinia</a> 介绍</h3><p>Pinia是一个专门为Vue.js设计的状态管理库，它提供了一种简单和直观的方式来管理应用程序的状态。在使用Pinia时，可以轻松地创建定义状态的存储，然后将其与Vue组件绑定，使它们能够使用该状态。和Vuex相比，Pinia 更加简单易用，体积更小，同时具有更好的 TypeScript 支持和插件系统。</p>
@@ -506,8 +697,8 @@
         <category>前端应用</category>
       </categories>
       <tags>
-        <tag>Pinia</tag>
         <tag>Vue</tag>
+        <tag>Pinia</tag>
       </tags>
   </entry>
   <entry>
@@ -637,86 +828,6 @@
       </categories>
       <tags>
         <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue Router的基本用法</title>
-    <url>/2025/03/05/Router%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="Vue-Router的基本用法"><a href="#Vue-Router的基本用法" class="headerlink" title="Vue Router的基本用法"></a>Vue Router的基本用法</h3><h3 id="一、安装使用步骤"><a href="#一、安装使用步骤" class="headerlink" title="一、安装使用步骤"></a>一、安装使用步骤</h3><p>对于一个现有的使用 JavaScript 包管理器的项目，你可以从 npm registry 中安装 Vue Router：</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install vue-router@4</span><br></pre></td></tr></table></figure></div>
-
-<p>新建文件src&#x2F;router&#x2F;index.js</p>
-<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createWebHistory, createRouter &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//配置路由映射：组件和路径映射关系的routes数组</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; </span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;./HomeView.vue&#x27;</span>)</span><br><span class="line">  &#125;, </span><br><span class="line">  &#123; </span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;./AboutView.vue&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过createRouter创建路由对象，并且传入routes和history模式</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHistory</span>(),</span><br><span class="line">  routes,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//向外共享路由实例对象</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure></div>
-
-<p>在 src&#x2F;main.js 中导入注册 Vue Router</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> ‘./router’</span><br><span class="line">app.<span class="title function_">use</span>(router)</span><br></pre></td></tr></table></figure></div>
-
-<p>在App.vue中使用</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- App根组件 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;!-- 声明路由链接 --&gt;</span><br><span class="line">    &lt;router-link to=&quot;/home&quot;&gt;首页&lt;/router-link&gt;</span><br><span class="line">    &lt;router-link to=&quot;/about&quot;&gt;关于&lt;/router-link&gt;</span><br><span class="line">    &lt;!-- 声明路由占位符 --&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="二、动态路由匹配"><a href="#二、动态路由匹配" class="headerlink" title="二、动态路由匹配"></a>二、<a class="link"   href="https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html" >动态路由匹配</a></h3><p>很多时候，我们需要将给定匹配模式的路由映射到同一个组件。</p>
-<ul>
-<li><p>例如，我们可能有一个 <code>User</code> 组件，它应该对所有用户进行渲染，但用户 ID 不同。</p>
-</li>
-<li><p>在Vue Router中，我们可以在路径中使用一个动态字段来实现，我们称之为 路径参数；</p>
-</li>
-</ul>
-<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; </span><br><span class="line">  	  <span class="comment">// 动态字段以冒号开始	</span></span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/users/:id&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&#x27;./User.vue&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
-
-
-
-<p>你可以在同一个路由中设置有多个 <em>路径参数</em>，它们会映射到 <code>$route.params</code> 上的相应字段。例如：</p>
-<table>
-<thead>
-<tr>
-<th align="left">匹配模式</th>
-<th align="left">匹配路径</th>
-<th align="left">route.params</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">&#x2F;users&#x2F;:username</td>
-<td align="left">&#x2F;users&#x2F;eduardo</td>
-<td align="left"><code>&#123; username: &#39;eduardo&#39; &#125;</code></td>
-</tr>
-<tr>
-<td align="left">&#x2F;users&#x2F;:username&#x2F;posts&#x2F;:postId</td>
-<td align="left">&#x2F;users&#x2F;eduardo&#x2F;posts&#x2F;123</td>
-<td align="left"><code>&#123; username: &#39;eduardo&#39;, postId: &#39;123&#39; &#125;</code></td>
-</tr>
-</tbody></table>
-<h5 id="获取动态路由的值："><a href="#获取动态路由的值：" class="headerlink" title="获取动态路由的值："></a>获取动态路由的值：</h5><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;User---&#123;&#123; $route.params.id &#125;&#125;&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    // setup中使用useRoute</span><br><span class="line">	import &#123;useRoute&#125; from &quot;vue-router&quot;</span><br><span class="line">    const router = useRoute()</span><br><span class="line">    console.log(route.params.id)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="三、路由命名"><a href="#三、路由命名" class="headerlink" title="三、路由命名"></a>三、路由命名</h3><p>当创建一个路由时，我们可以选择给路由一个 <code>name</code>：</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/user/:username&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;profile&#x27;</span>, </span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">User</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
-
-<p>然后我们可以使用 <code>name</code> 而不是 <code>path</code> 来传递 <code>to</code> 属性给 <code>&lt;router-link&gt;</code>：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;router-link :to=&quot;&#123; name: &#x27;profile&#x27;, params: &#123; username: &#x27;erina&#x27; &#125; &#125;&quot;&gt;</span><br><span class="line">  User profile</span><br><span class="line">&lt;/router-link&gt;</span><br></pre></td></tr></table></figure></div>
-
-<p>上述示例将创建一个指向 <code>/user/erina</code> 的链接。</p>
-<h3 id="四、编程式导航"><a href="#四、编程式导航" class="headerlink" title="四、编程式导航"></a>四、编程式导航</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">    // setup中使用useRoute</span><br><span class="line">	import &#123;useRoute&#125; from &quot;vue-router&quot;</span><br><span class="line">    const router = useRoute()</span><br><span class="line">   	</span><br><span class="line">    //字符串路径</span><br><span class="line">    router.push(&#x27;/user/eduardo&#x27;)</span><br><span class="line">    </span><br><span class="line">    //带路径的对象</span><br><span class="line">    router.push(&#123;path:&#x27;/users/eduardo&#x27;&#125;)</span><br><span class="line">    </span><br><span class="line">    //命名的路由，并加上参数，让路由建立url</span><br><span class="line">    router.push(&#123;name:&#x27;user&#x27;,params:&#123;username:&#x27;eduardo&#x27;&#125;&#125;)</span><br><span class="line">    </span><br><span class="line">    //带查询参数，结果是 /register?plan=private</span><br><span class="line">    router.push(&#123;path:&#x27;/register&#x27;,query:&#123;plan:&#x27;private&#x27;&#125;&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
-
-<p><strong>注意</strong>：如果提供了 <code>path</code>，<code>params</code> 会被忽略</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> username = <span class="string">&#x27;eduardo&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们可以手动建立 url，但我们必须自己处理编码</span></span><br><span class="line">router.<span class="title function_">push</span>(<span class="string">`/user/<span class="subst">$&#123;username&#125;</span>`</span>) <span class="comment">// -&gt; /user/eduardo</span></span><br><span class="line"><span class="comment">// 同样</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">`/user/<span class="subst">$&#123;username&#125;</span>`</span> &#125;) <span class="comment">// -&gt; /user/eduardo</span></span><br><span class="line"><span class="comment">// 如果可能的话，使用 `name` 和 `params` 从自动 URL 编码中获益</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;user&#x27;</span>, <span class="attr">params</span>: &#123; username &#125; &#125;) <span class="comment">// -&gt; /user/eduardo</span></span><br><span class="line"><span class="comment">// `params` 不能与 `path` 一起使用</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span>, <span class="attr">params</span>: &#123; username &#125; &#125;) <span class="comment">// -&gt; /user</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="替换当前位置"><a href="#替换当前位置" class="headerlink" title="替换当前位置"></a>替换当前位置</h4><p>它的作用类似于 <code>router.push</code>，唯一不同的是，它在导航时不会向 history 添加新记录，正如它的名字所暗示的那样——它取代了当前的条目。也可以直接在传递给 <code>router.push</code> 的 <code>to</code> 参数中增加一个属性 <code>replace: true</code> ：</p>
-<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>, <span class="attr">replace</span>: <span class="literal">true</span> &#125;)</span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line">router.<span class="title function_">replace</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span> &#125;)</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="横跨历史"><a href="#横跨历史" class="headerlink" title="横跨历史"></a>横跨历史</h4><div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 向前移动一条记录，与 router.forward() 相同</span></span><br><span class="line">router.<span class="title function_">go</span>(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回一条记录，与 router.back() 相同</span></span><br><span class="line">router.<span class="title function_">go</span>(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 前进 3 条记录</span></span><br><span class="line">router.<span class="title function_">go</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果没有那么多记录，静默失败</span></span><br><span class="line">router.<span class="title function_">go</span>(-<span class="number">100</span>)</span><br><span class="line">router.<span class="title function_">go</span>(<span class="number">100</span>)</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="五、路由组件传参"><a href="#五、路由组件传参" class="headerlink" title="五、路由组件传参"></a>五、路由组件传参</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- User.vue --&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    </span><br><span class="line">defineProps(&#123;</span><br><span class="line">  id: String</span><br><span class="line">&#125;)</span><br><span class="line">    </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    User &#123;&#123; id &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></div>
-
-<p>然后我们可以通过设置 <code>props: true</code> 来配置路由将 <code>id</code> 参数作为 prop 传递给组件：</p>
-<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;/user/:id&#x27;</span>, <span class="attr">component</span>: <span class="title class_">User</span>, <span class="attr">props</span>: <span class="literal">true</span> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
-
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>前端应用</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-        <tag>Router</tag>
       </tags>
   </entry>
   <entry>
@@ -974,29 +1085,6 @@
       </tags>
   </entry>
   <entry>
-    <title>个人第一篇博客</title>
-    <url>/2024/11/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
-<li>这是我的第一篇个人博客，作为初学者，这算是一个新的开始，程序员总该要有一个属于自己的网站吧！</li>
-<li>搭建这个blog的目的是想记录一些东西，技术上的也好，日常生活也好，过程中也能学习到不少东西，说干就干！</li>
-</ul>
-<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>进入程序员这行已经有2年时间了，从技术小白一路走来，学过的知识和做过的项目都不曾好好地去总结，所以想找个地方好好记录下来。</p>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>大学四年时候给我的第一感受是，修完学校的课程后，发现出来工作用得上的少之又少，如今大环境经济形势 不好，跳槽也很难，要想找到满意的工作就不得不提高自己的技术和水平，所以要想深入了解开发技术必须要用业余时间来学习记录和总结。</p>
-<h3 id="入行"><a href="#入行" class="headerlink" title="入行"></a>入行</h3><p>毕业后第一件事当然是找工作啦，兜兜转转两个月，找到了一家做农业的物联网公司，正好缺一个应届毕业生做网页开发，于是就开启了搬砖生活。公司规模不大，平时的工作是写写web前端的页面，刚入职不久就去山西出差做项目了，老板可能看我表现还可以，完成了基本考核后正式转正成了一名前端开发。</p>
-<h3 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h3><p>大学期间主要学的java，js，html，css什么都学一点，所以技术上来说不是很深入，<a class="link"   href="https://cn.vuejs.org/guide/introduction.html" >Vue</a>是近几年比较火的前端框架，为了快点提高技术自己又花时间去网上看文档视频，js，css，html也是重新学习了一下，然后就直接开始实际做项目。刚开始使用技术不够熟练，踩了不少坑，一个自适应页面折腾了好几个月才勉强搞定，现在熟悉了以后看之前写的代码不禁感叹我以前这么菜的啊，哈哈。</p>
-<h3 id="业余生活"><a href="#业余生活" class="headerlink" title="业余生活"></a>业余生活</h3><p>工作是双休制不加班，所以平常有事没事就和同学朋友出去玩，爬爬山吃吃饭唱唱歌啥的，总之比较爱玩。可能是大学生活过的太爽了，现在已经成了一个小胖子了（大一那会还是挺瘦的），之前膝盖受过伤，爬山又开始有点膝盖疼了，腿脚也不利索了也就爬的少了。本来我也是个不追星的人，谁知道突然杀出来个赵雷，他的歌给人一种朴实且真诚的感觉，后面就越来越喜欢了，偶尔会去看看他音乐节。今年错过了“没有信号”巡演和阿那亚限时返场，真是遗憾。其他的话偶尔追追剧、看看电影、学学吉他。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>尽量每周写一篇记录一下生活、技术的博客，总结一下经验。明年想离开桂林去外边的世界看看，得多提升一下自己才行！</p>
-]]></content>
-      <categories>
-        <category>记录生活</category>
-        <category>第一篇博客</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>新的开始</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>阿里云短信验证码登录功能</title>
     <url>/2024/12/20/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<h3 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h3><h6 id="1、登录阿里云进入到短信服务：阿里云-短信服务"><a href="#1、登录阿里云进入到短信服务：阿里云-短信服务" class="headerlink" title="1、登录阿里云进入到短信服务：阿里云-短信服务"></a>1、登录阿里云进入到短信服务：<a class="link"   href="https://dysms.console.aliyun.com/overview" >阿里云-短信服务</a></h6><h6 id="2、按照首页提示一次完成相应的资质认证和短信模板审核；"><a href="#2、按照首页提示一次完成相应的资质认证和短信模板审核；" class="headerlink" title="2、按照首页提示一次完成相应的资质认证和短信模板审核；"></a>2、按照首页提示一次完成相应的<strong>资质认证</strong>和<strong>短信模板</strong>审核；</h6><p><img  
@@ -1045,6 +1133,29 @@
       <tags>
         <tag>阿里云</tag>
         <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人第一篇博客</title>
+    <url>/2024/11/14/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>这是我的第一篇个人博客，作为初学者，这算是一个新的开始，程序员总该要有一个属于自己的网站吧！</li>
+<li>搭建这个blog的目的是想记录一些东西，技术上的也好，日常生活也好，过程中也能学习到不少东西，说干就干！</li>
+</ul>
+<h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>进入程序员这行已经有2年时间了，从技术小白一路走来，学过的知识和做过的项目都不曾好好地去总结，所以想找个地方好好记录下来。</p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>大学四年时候给我的第一感受是，修完学校的课程后，发现出来工作用得上的少之又少，如今大环境经济形势 不好，跳槽也很难，要想找到满意的工作就不得不提高自己的技术和水平，所以要想深入了解开发技术必须要用业余时间来学习记录和总结。</p>
+<h3 id="入行"><a href="#入行" class="headerlink" title="入行"></a>入行</h3><p>毕业后第一件事当然是找工作啦，兜兜转转两个月，找到了一家做农业的物联网公司，正好缺一个应届毕业生做网页开发，于是就开启了搬砖生活。公司规模不大，平时的工作是写写web前端的页面，刚入职不久就去山西出差做项目了，老板可能看我表现还可以，完成了基本考核后正式转正成了一名前端开发。</p>
+<h3 id="技术学习"><a href="#技术学习" class="headerlink" title="技术学习"></a>技术学习</h3><p>大学期间主要学的java，js，html，css什么都学一点，所以技术上来说不是很深入，<a class="link"   href="https://cn.vuejs.org/guide/introduction.html" >Vue</a>是近几年比较火的前端框架，为了快点提高技术自己又花时间去网上看文档视频，js，css，html也是重新学习了一下，然后就直接开始实际做项目。刚开始使用技术不够熟练，踩了不少坑，一个自适应页面折腾了好几个月才勉强搞定，现在熟悉了以后看之前写的代码不禁感叹我以前这么菜的啊，哈哈。</p>
+<h3 id="业余生活"><a href="#业余生活" class="headerlink" title="业余生活"></a>业余生活</h3><p>工作是双休制不加班，所以平常有事没事就和同学朋友出去玩，爬爬山吃吃饭唱唱歌啥的，总之比较爱玩。可能是大学生活过的太爽了，现在已经成了一个小胖子了（大一那会还是挺瘦的），之前膝盖受过伤，爬山又开始有点膝盖疼了，腿脚也不利索了也就爬的少了。本来我也是个不追星的人，谁知道突然杀出来个赵雷，他的歌给人一种朴实且真诚的感觉，后面就越来越喜欢了，偶尔会去看看他音乐节。今年错过了“没有信号”巡演和阿那亚限时返场，真是遗憾。其他的话偶尔追追剧、看看电影、学学吉他。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>尽量每周写一篇记录一下生活、技术的博客，总结一下经验。明年想离开桂林去外边的世界看看，得多提升一下自己才行！</p>
+]]></content>
+      <categories>
+        <category>记录生活</category>
+        <category>第一篇博客</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>新的开始</tag>
       </tags>
   </entry>
 </search>
