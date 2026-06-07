@@ -1127,4 +1127,116 @@
         <tag>架构</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Codex接入DeepSeek V4</title>
+    <url>/2026/06/07/Codex++%E6%8E%A5%E5%85%A5DeepSeekV4%E5%A4%A7%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="Codex-接入-DeepSeek-V4"><a href="#Codex-接入-DeepSeek-V4" class="headerlink" title="Codex++ 接入 DeepSeek V4"></a>Codex++ 接入 DeepSeek V4</h1><p>Codex++ 管理工具，把 DeepSeek V4 接到 Codex 桌面端：下载安装 → 添加供应商 → 填 Key → 重启即用。</p>
+<h2 id="下载-Codex"><a href="#下载-Codex" class="headerlink" title="下载 Codex++"></a>下载 Codex++</h2><p>前往 GitHub Releases 页面下载：</p>
+<p><a class="link"   href="https://github.com/BigPizzaV3/CodexPlusPlus/releases" >https://github.com/BigPizzaV3/CodexPlusPlus/releases</a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/6a252b27d71dee7c94195e9c.png"
+                     
+                ></p>
+<p>Windows 用户下载 <code>CodexPlusPlus-*-Windows-x64-Setup.exe</code> 安装即可。</p>
+<h2 id="配置-Codex"><a href="#配置-Codex" class="headerlink" title="配置 Codex++"></a>配置 Codex++</h2><h3 id="1-安装-Codex"><a href="#1-安装-Codex" class="headerlink" title="1. 安装 Codex++"></a>1. 安装 Codex++</h3><p>双击安装包，按提示完成安装。桌面会出现 <strong>Codex++</strong> 与 <strong>Codex++ 管理工具</strong> 两个快捷方式。</p>
+<h3 id="2-打开管理工具，添加供应商配置"><a href="#2-打开管理工具，添加供应商配置" class="headerlink" title="2. 打开管理工具，添加供应商配置"></a>2. 打开管理工具，添加供应商配置</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/6a252b42d71dee7c94195e9e.png"
+                     
+                ></p>
+<p>进入 <strong>供应商配置</strong> 页面，点击 <strong>+ 添加供应商</strong>。</p>
+<h3 id="3-填写-DeepSeek-配置"><a href="#3-填写-DeepSeek-配置" class="headerlink" title="3. 填写 DeepSeek 配置"></a>3. 填写 DeepSeek 配置</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/6a252b6dd71dee7c94195eaf.png"
+                     
+                ></p>
+<p>按下表填写（重点项）：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>填写内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>名称</td>
+<td>DeepSeek（随意，便于识别）</td>
+</tr>
+<tr>
+<td>接入模式</td>
+<td><strong>纯 API</strong></td>
+</tr>
+<tr>
+<td>测试模型</td>
+<td><code>deepseek-v4-flash</code>（或你使用的 DeepSeek V4 模型名）</td>
+</tr>
+<tr>
+<td>Base URL</td>
+<td><code>https://api.deepseek.com</code></td>
+</tr>
+<tr>
+<td>KEY</td>
+<td>你的 DeepSeek API Key</td>
+</tr>
+<tr>
+<td>上游协议</td>
+<td><strong>Chat Completions</strong>（必须选 Chat 模式，不要选 Responses API）</td>
+</tr>
+</tbody></table>
+<p>配置完成后点击 <strong>保存</strong>，再点击 <strong>使用 DeepSeek</strong>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/6a252b85d71dee7c94195ebe.png"
+                     
+                ></p>
+<h3 id="4-重启-Codex"><a href="#4-重启-Codex" class="headerlink" title="4. 重启 Codex"></a>4. 重启 Codex</h3><p>在管理工具里点击 <strong>重启 Codex</strong>，等待状态变为 Running。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/6a252b96d71dee7c94195ec6.png"
+                     
+                ></p>
+<h2 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h2><p>打开 Codex++ 界面，确认左上角模型已切换为 <strong>DeepSeek V4</strong>：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/6a252bb0d71dee7c94195edb.png"
+                     
+                ></p>
+<p>随便发一句「你好」测试：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://pic1.imgdb.cn/item/6a252bdfd71dee7c94195ef8.png"
+                     
+                ></p>
+<p>能正常回复说明 DeepSeek V4 已接入成功，可以开始用了。</p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Q1：保存后-Codex-仍显示旧模型？"><a href="#Q1：保存后-Codex-仍显示旧模型？" class="headerlink" title="Q1：保存后 Codex 仍显示旧模型？"></a>Q1：保存后 Codex 仍显示旧模型？</h3><ul>
+<li>确认已点击 <strong>使用 DeepSeek</strong>，并在管理工具里 <strong>重启 Codex</strong>。</li>
+<li>完全退出 Codex 窗口后再从桌面重新打开。</li>
+</ul>
+<h3 id="Q2：请求报错-无响应？"><a href="#Q2：请求报错-无响应？" class="headerlink" title="Q2：请求报错 &#x2F; 无响应？"></a>Q2：请求报错 &#x2F; 无响应？</h3><ul>
+<li>检查 DeepSeek API Key 是否有效、余额是否充足。</li>
+<li>Base URL 必须是 <code>https://api.deepseek.com</code>。</li>
+<li>上游协议务必选 <strong>Chat Completions</strong>，不要选 Responses API。</li>
+</ul>
+<h3 id="Q3：ChatGPT-登录提示缺失？"><a href="#Q3：ChatGPT-登录提示缺失？" class="headerlink" title="Q3：ChatGPT 登录提示缺失？"></a>Q3：ChatGPT 登录提示缺失？</h3><ul>
+<li>使用 <strong>纯 API</strong> 模式时，可以不登录 ChatGPT 官方账号，忽略该提示即可。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
+        <tag>Codex</tag>
+        <tag>DeepSeek</tag>
+      </tags>
+  </entry>
 </search>
